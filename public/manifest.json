@@ -1,0 +1,27 @@
+{
+  "name": "Mr Arnold Barbearia",
+  "short_name": "Mr Arnold",
+  "description": "Barbearia Mr Arnold - Tradição, Estilo e Cuidado",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101510",
+  "theme_color": "#2ecc40",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/imgs/logo-barbearia.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/imgs/logo-barbearia.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "business"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+} 

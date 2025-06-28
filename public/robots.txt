@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mrarnold.com.br/sitemap.xml
+
+# Otimizações para SEO
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Permitir indexação de recursos importantes
+Allow: /imgs/
+Allow: /videos/
+Allow: /css/
+Allow: /js/ 

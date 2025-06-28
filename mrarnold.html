@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Arnold Barbearia</title>
+    <link rel="icon" type="image/png" href="imgs/logo-barbearia.png">
+    <link rel="stylesheet" href="CSS/mrarnold.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-hero-container">
+        <video class="video-hero" src="videos/video-inicio.mp4" autoplay muted loop playsinline></video>
+        <div class="scroll-down-btn-container">
+            <button class="scroll-down-btn" onclick="document.getElementById('inicio').scrollIntoView({behavior: 'smooth'});">
+                <img src="imgs/green-arrow.png" alt="Descer" class="arrow-down">
+            </button>
+        </div>
+        <div class="video-hero-footer">
+            <img src="imgs/logo-barbearia.png" alt="Logo Mr Arnold Barbearia" class="footer-logo">
+            <div class="footer-title">Mr Arnold Barbearia</div>
+            <ul class="footer-nav">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#barbeiros">Profissionais</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo-nav">
+                <img src="imgs/logo-barbearia.png" alt="Logo Mr Arnold Barbearia" class="logo-barbearia-nav">
+                <a href="#inicio" class="logo-link">Mr Arnold</a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link-item"><a href="#inicio">Início</a></li>
+                <li class="nav-link-item"><a href="#servicos">Serviços</a></li>
+                <li class="nav-link-item"><a href="#barbeiros">Profissionais</a></li>
+                <li class="nav-link-item"><a href="#produtos">Produtos</a></li>
+                <li class="nav-link-item"><a href="#contato">Contato</a></li>
+                <li><button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu lateral">+</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="sidebar-overlay"></div>
+    <aside id="sidebar-menu" class="sidebar-menu">
+        <button id="close-sidebar" class="close-sidebar" aria-label="Fechar menu lateral">-</button>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#barbeiros">Profissionais</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#resultados">Resultados reais</a></li>
+            <li><a href="#dicas">Dicas</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#contato">Localização</a></li>
+        </ul>
+    </aside>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <img src="imgs/logo-barbearia.png" alt="Logo Mr Arnold Barbearia" class="logo-hero" style="display:block;margin:0 auto 20px auto;max-width:220px;width:50%;height:auto;">
+            <h1>Bem-vindo à Mr Arnold Barbearia</h1>
+            <p>Tradição, estilo e cuidado para você se sentir único.</p>
+        </div>
+        
+        <div class="agendamento-card">
+            <h2>Conheça a experiência completa da nossa barbearia — agende seu horário com praticidade!</h2>
+            <div class="agendamento-opcoes">
+                <p>Use o site ou baixe o app TRINKS e agende quando quiser, de onde estiver.</p>
+                <div class="agendamento-botoes">
+                    <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-btn trinks-btn">
+                        <img src="imgs/trinks-icon.png" alt="TRINKS">
+                        <span>Agendar pelo Site</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-btn app-btn">
+                        <img src="imgs/play-store-icon.png" alt="Play Store">
+                        <span>Baixar App</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="desconto-box">
+            <h2>Ganhe 10% de desconto na primeira visita!</h2>
+            <form id="desconto-form">
+                <input type="email" placeholder="Seu e-mail" required>
+                <input type="tel" placeholder="Seu telefone" required>
+                <button type="submit">Quero meu desconto</button>
+            </form>
+            <span id="desconto-msg"></span>
+        </div>
+    </section>
+    <section id="barbeiros" class="barbeiros">
+        <h2>Nossos Profissionais</h2>
+        <div class="barbeiros-lista">
+            <div class="barbeiro-card">
+                <img src="imgs/rafa-barber.jpg" alt="Barbeiro Rafael">
+                <h3>Rafael</h3>
+                <p>Atendimento de qualidade com técnica e um toque personalizado para você.</p>
+                <a href="https://www.instagram.com/old_rafael_barber_/" target="_blank" class="instagram-link">@old_rafael_barber_</a>
+            </div>
+            <div class="barbeiro-card">
+                <img src="imgs/raul-barber.jpg" alt="Barbeiro Raul">
+                <h3>Raul</h3>
+                <p>Cortes e barbas com excelência, técnica e atenção aos seus detalhes.</p>
+                <a href="https://www.instagram.com/raulrodasbarber/" target="_blank" class="instagram-link">@raulrodasbarber</a>
+            </div>
+            <div class="barbeiro-card">
+                <img src="imgs/naka-barber.jpg" alt="Barbeira Naka">
+                <h3>Naka</h3>
+                <p>Precisão, delicadeza e estilo em cada atendimento, pensado especialmente para você.</p>
+                <a href="https://www.instagram.com/nakazatobarber/" target="_blank" class="instagram-link">@nakazatobarber</a>
+            </div>
+        </div>
+    </section>
+    <section id="servicos" class="servicos">
+        <h2>Serviços</h2>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/cabelo-icon.png" alt="Cabelo" class="servico-icone"> Cabelo</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Corte</h4>
+                    <p class="servico-descricao">Corte completo com tesoura e máquina ou somente tesoura, finalizado com estilo e atenção aos detalhes.</p>
+                    <div class="servico-valor">R$50</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Corte apenas máquina</h4>
+                    <p class="servico-descricao">Corte prático e uniforme somente com máquina, ideal para quem prefere simplicidade e agilidade. <em>*degradê não incluso.</em></p>
+                    <div class="servico-valor">R$35</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Pézinho</h4>
+                    <p class="servico-descricao">Retoque no acabamento do cabelo para manter o corte sempre alinhado</p>
+                    <div class="servico-valor">R$20</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/barba-icon.png" alt="Barba" class="servico-icone"> Barba</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Barba</h4>
+                    <p class="servico-descricao">Design de barba com definição e toalha quente para um acabamento impecável.</p>
+                    <div class="servico-valor">R$45</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Barba apenas máquina</h4>
+                    <p class="servico-descricao">Aparação da barba com máquina, para um visual limpo e natural, sem navalha.</p>
+                    <div class="servico-valor">R$20</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Barboterapia</h4>
+                    <p class="servico-descricao">Tratamento completo para barba com esfoliação, hidratação, toalha quente e finalização.</p>
+                    <div class="servico-valor">R$65</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/combo-icon.png" alt="Combo Corte e Barba" class="servico-icone"> Corte e Barba</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Combo</h4>
+                    <p class="servico-descricao">Corte e barba com cuidado completo do início ao fim</p>
+                    <div class="servico-valor">R$80</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/sobrancelha-icon.png" alt="Sobrancelha" class="servico-icone"> Sobrancelha</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Sobrancelha</h4>
+                    <p class="servico-descricao">Limpeza e alinhamento das sobrancelhas com técnica precisa e acabamento natural.</p>
+                    <div class="servico-valor">R$20</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/depilacao-icon.png" alt="Depilação" class="servico-icone"> Depilações</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Depilação de nariz</h4>
+                    <p class="servico-descricao">Remoção eficaz dos pelos indesejados com conforto e higiene.</p>
+                    <div class="servico-valor">R$30</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Depilação de orelha</h4>
+                    <p class="servico-descricao">Remoção eficaz dos pelos indesejados com conforto e higiene.</p>
+                    <div class="servico-valor">R$30</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/tratamento-icon.png" alt="Tratamentos e Terapias Capilares" class="servico-icone"> Tratamentos e Terapias Capilares</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Banho de Gelo</h4>
+                    <p class="servico-descricao">Terapia capilar refrescante com esfoliação, limpeza do couro cabeludo, hidratação dos fios e massagem relaxante. Auxilia na prevenção da caspa, melhora a circulação sanguínea. É ideal para cuidar dos cabelos expostos a suor e poeira.</p>
+                    <div class="servico-valor">R$60</div>
+                </div>
+                <div class="servico-card">
+                    <h4>Hidratação</h4>
+                    <p class="servico-descricao">Tratamento nutritivo para cabelos ressecados ou danificados. Mais brilho, maciez e controle.</p>
+                    <div class="servico-valor">R$45</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/cuidados-pele-icon.png" alt="Cuidados com a pele" class="servico-icone"> Cuidados com a pele</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Limpeza de Pele</h4>
+                    <p class="servico-descricao">Remoção de impurezas e células mortas, deixando a pele renovada e saudável.</p>
+                    <div class="servico-valor">R$40</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="servicos-grupo">
+            <h3><img src="imgs/higienizacao-icon.png" alt="Higienização dos fios" class="servico-icone"> Higienização dos fios</h3>
+            <div class="servicos-cards">
+                <div class="servico-card">
+                    <h4>Higienização, secagem e finalização</h4>
+                    <p class="servico-descricao">Limpeza profunda dos fios e couro cabeludo, com finalização na secagem. Ideal antes de um corte ou evento.</p>
+                    <div class="servico-valor">R$35</div>
+                </div>
+                <!-- Card de Agendamento -->
+                <div class="servico-card servico-agendamento">
+                    <p class="servico-agendamento-texto">Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br>
+                    Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.</p>
+                    <div class="servico-agendamento-links">
+                        <a href="https://www.trinks.com/mr-arnold" target="_blank" class="agendamento-link">
+                            <img src="imgs/trinks-icon.png" alt="Agendar pelo site Trinks" class="agendamento-icone"> Agendar pelo Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" class="agendamento-link">
+                            <img src="imgs/play-store-icon.png" alt="Baixar App Trinks" class="agendamento-icone"> Baixar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="produtos" class="produtos">
+        <h2>Produtos</h2>
+        <div class="produtos-carousel-container">
+            <button class="carousel-arrow left" id="carousel-prev">
+                <img src="imgs/arrow.png" alt="Anterior">
+            </button>
+            <div class="produtos-carousel" id="produtos-carousel">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+            <button class="carousel-arrow right" id="carousel-next">
+                <img src="imgs/arrow.png" alt="Próximo">
+            </button>
+        </div>
+        <div class="desconto-jaboque-box">
+            <h3>15% de desconto em produtos Jaboque!</h3>
+            <p>Cadastre-se para garantir seu desconto exclusivo em toda a linha Jaboque.</p>
+            <form id="jaboque-form">
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <input type="tel" placeholder="Seu telefone" required>
+                <button type="submit">Quero meu desconto Jaboque</button>
+            </form>
+            <span id="jaboque-msg"></span>
+        </div>
+    </section>
+    <section id="resultados" class="resultados">
+        <h2>Confira o trabalho dos nossos profissionais - Resultados Reais</h2>
+        <div class="portfolio-barbeiros">
+            <div class="portfolio-linha">
+                <h3>Rafael</h3>
+                <p class="barbeiro-frase">Cada cliente tem um estilo único, e meu foco é valorizar isso com técnica e atenção aos detalhes. Do degradê ao corte alinhado, entrego sempre o melhor.</p>
+                <div class="portfolio-cards">
+                    <a href="https://www.instagram.com/p/C32v24ZudCI/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/rafa-corte1.jpg" alt="Corte Rafael 1">
+                        <div class="portfolio-legenda">Corte moderno, alinhado com a sua identidade.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/DAYwuaJpZQU/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/rafa-corte2.jpg" alt="Corte Rafael 2">
+                        <div class="portfolio-legenda">Estilo e precisão em cada detalhe do corte.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/CahikGmuEo2/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/rafa-corte3.png" alt="Corte Rafael 3">
+                        <div class="portfolio-legenda">Do clássico ao atual, sempre com excelência no atendimento.</div>
+                    </a>
+                    <a href="https://www.instagram.com/old_rafael_barber_/" target="_blank" class="portfolio-card portfolio-card-instagram">
+                        <div class="portfolio-legenda">Quero conhecer mais sobre o Rafael</div>
+                        <img src="imgs/instagram-icon.png" alt="Instagram" class="portfolio-instagram-icon">
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio-linha">
+                <h3>Raul</h3>
+                <p class="barbeiro-frase">Gosto de transformar cada corte em uma experiência. Trabalhar com precisão, escutar o cliente e cuidar do visual fazem parte do que me move na barbearia.</p>
+                <div class="portfolio-cards">
+                    <a href="https://www.instagram.com/p/CmNN7PZuG5x/" target="_blank" class="portfolio-card">
+                        <img src="imgs/raul-corte1.jpg" alt="Corte Raul 1">
+                        <div class="portfolio-legenda">Visual renovado com técnica e personalidade.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/CJbaa-PDl7q/" target="_blank" class="portfolio-card">
+                        <img src="imgs/raul-corte2.png" alt="Corte Raul 2">
+                        <div class="portfolio-legenda">Seu estilo valorizado com acabamento profissional.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/CJUizNVjxS7/" target="_blank" class="portfolio-card">
+                        <img src="imgs/raul-corte3.jpg" alt="Corte Raul 3">
+                        <div class="portfolio-legenda">Corte bem feito é autoestima em dia.</div>
+                    </a>
+                    <a href="https://www.instagram.com/raulrodasbarber/" target="_blank" class="portfolio-card portfolio-card-instagram">
+                        <div class="portfolio-legenda">Quero conhecer mais sobre o Raul</div>
+                        <img src="imgs/instagram-icon.png" alt="Instagram" class="portfolio-instagram-icon">
+                    </a>
+                </div>
+            </div>
+            <div class="portfolio-linha">
+                <h3>Naka</h3>
+                <p class="barbeiro-frase">Renovar a autoestima dos clientes é sempre um prazer. Tenho carinho especial por cortes em cabelos cacheados, mas o clássico bem feito também tem meu respeito e dedicação.</p>
+                <div class="portfolio-cards">
+                    <a href="https://www.instagram.com/p/DFdzbgoxzd8/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/naka-corte1.jpg" alt="Corte Naka 1">
+                        <div class="portfolio-legenda">Corte infantil com cuidado, paciência e um toque de estilo para os pequenos.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/CypbBjXu5kt/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/naka-corte2.jpg" alt="Corte Naka 2">
+                        <div class="portfolio-legenda">Sobrancelha alinhada realça o olhar e valoriza o rosto. Cuidamos de cada detalhe.</div>
+                    </a>
+                    <a href="https://www.instagram.com/p/DEs_FuUyXGG/?img_index=1" target="_blank" class="portfolio-card">
+                        <img src="imgs/naka-corte3.jpg" alt="Corte Naka 3">
+                        <div class="portfolio-legenda">Corte pensado para valorizar a textura natural dos fios. Respeito, técnica e estilo para cabelos cacheados e crespos.</div>
+                    </a>
+                    <a href="https://www.instagram.com/nakazatobarber/" target="_blank" class="portfolio-card portfolio-card-instagram">
+                        <div class="portfolio-legenda">Quero conhecer mais sobre a Naka</div>
+                        <img src="imgs/instagram-icon.png" alt="Instagram" class="portfolio-instagram-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="dicas" class="dicas">
+        <h2>Dicas de Cuidado</h2>
+        <div class="dicas-carousel-container">
+            <button class="dicas-carousel-arrow left" id="dicas-carousel-prev">&#8592;</button>
+            <div class="dicas-carousel" id="dicas-carousel">
+                <!-- Slides serão inseridos via JavaScript -->
+            </div>
+            <button class="dicas-carousel-arrow right" id="dicas-carousel-next">&#8594;</button>
+        </div>
+        <div class="dicas-carousel-indicators" id="dicas-carousel-indicators"></div>
+    </section>
+    <section id="contato" class="contato">
+        <h2>Localização & Atendimento</h2>
+        <div class="contato-info">
+            <p><strong>Endereço:</strong> Rua Dr Arthur Jorge, 1054 - Centro, Campo Grande/MS</p>
+            <p><strong>Telefone:</strong> (67) 99894-2928</p>
+            <p><strong>Email:</strong> mrarnoldbarbearia@gmail.com</p>
+            <p>
+                <a href="https://api.whatsapp.com/send/?phone=5567992823631&text&type=phone_number&app_absent=0" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none;color:#25D366;font-weight:bold;font-size:1.1em;gap:8px;">
+                    <img src="imgs/whatsapp-icon.png" alt="WhatsApp" style="height:24px;width:24px;vertical-align:middle;"> Fale conosco por aqui!
+                </a>
+            </p>
+            <p>
+                <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none;color:#E4405F;font-weight:bold;font-size:1.1em;gap:8px;">
+                    <img src="imgs/instagram-contato-icon.png" alt="Instagram" style="height:24px;width:24px;vertical-align:middle;"> Segue a gente no Instagram!<br>
+                </a>
+                <span style="color:#fff;font-weight:400;font-size:1em;display:block;margin-top:2px;">Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.</span>
+            </p>
+        </div>
+        <div class="historia-card-container">
+            <div class="historia-card">
+                <div class="historia-card-front">
+                    <img src="imgs/logo-barbearia.png" alt="Logo Mr Arnold" class="historia-card-logo">
+                    <span class="historia-card-title">Já conhece a Mr. Arnold?</span>
+                </div>
+                <div class="historia-card-back">
+                    <div class="historia-card-texto">
+                        Para quem busca melhorar sua autoestima e se sentir melhor consigo mesmo, Mr. Arnold é uma barbearia que te ajuda a conquistar o seu melhor com um atendimento e estrutura de qualidade, não como barbearias famosas e impessoais de Campo Grande.<br><br>
+                        Nossa equipe é formada por profissionais experientes, apaixonados pelo que fazem e prontos para oferecer um atendimento de qualidade em cada detalhe: do corte clássico ao moderno, da barba bem feita ao cuidado com a pele e o couro cabeludo.<br><br>
+                        Mr. Arnold traz a combinação perfeita de qualidade e estrutura com o seu estilo ideal!<br><br>
+                        Seja bem-vindo à Mr. Arnold — onde estilo e cuidado andam juntos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p><strong>Endereço:</strong> Rua Dr Arthur Jorge, 1054 - Centro, Campo Grande/MS</p>
+            <p><strong>Telefone:</strong> (67) 99894-2928 | <strong>Email:</strong> mrarnoldbarbearia@gmail.com</p>
+            <p>&copy; 2024 Mr Arnold Barbearia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/mrarnold.js"></script>
+    <script>
+        // Menu lateral e overlay
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        function openSidebar() {
+            sidebarMenu.classList.add('open');
+            sidebarOverlay.classList.add('open');
+            menuToggle.textContent = '-';
+            menuToggle.classList.add('open');
+        }
+        function closeSidebarMenu() {
+            sidebarMenu.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+            menuToggle.textContent = '+';
+            menuToggle.classList.remove('open');
+        }
+        menuToggle.addEventListener('click', function() {
+            if (sidebarMenu.classList.contains('open')) {
+                closeSidebarMenu();
+            } else {
+                openSidebar();
+            }
+        });
+        closeSidebar.addEventListener('click', closeSidebarMenu);
+        sidebarOverlay.addEventListener('click', closeSidebarMenu);
+        // Fecha menu ao clicar em um link do menu lateral
+        sidebarMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeSidebarMenu);
+        });
+
+        // Esconde o rodapé do vídeo ao rolar a página
+        const videoHeroFooter = document.querySelector('.video-hero-footer');
+        let arrowDownState = 'down';
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 0) {
+                videoHeroFooter.style.opacity = '0';
+                videoHeroFooter.style.pointerEvents = 'none';
+                if (arrowDown) {
+                    arrowDown.style.transform = 'rotate(0deg)';
+                    arrowDownState = 'up';
+                }
+            } else {
+                videoHeroFooter.style.opacity = '1';
+                videoHeroFooter.style.pointerEvents = 'auto';
+                if (arrowDown) {
+                    arrowDown.style.transform = 'rotate(180deg)';
+                    arrowDownState = 'down';
+                }
+            }
+        });
+
+        // Alterna a direção da seta ao clicar
+        const scrollDownBtn = document.querySelector('.scroll-down-btn');
+        const arrowDown = document.querySelector('.arrow-down');
+        scrollDownBtn.addEventListener('click', function(e) {
+            setTimeout(() => {
+                if (arrowDownState === 'down') {
+                    arrowDown.style.transform = 'rotate(0deg)';
+                    arrowDownState = 'up';
+                } else {
+                    arrowDown.style.transform = 'rotate(180deg)';
+                    arrowDownState = 'down';
+                }
+            }, 300);
+        });
+    </script>
+</body>
+</html> 
