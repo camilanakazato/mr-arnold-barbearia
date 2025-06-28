@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import Header from '../components/Header'
 import VideoHero from '../components/VideoHero'
 import Hero from '../components/Hero'
@@ -10,12 +9,7 @@ import Products from '../components/Products'
 import Results from '../components/Results'
 import Tips from '../components/Tips'
 import Contact from '../components/Contact'
-
-// Lazy loading para componentes pesados
-const Sidebar = dynamic(() => import('../components/Sidebar'), {
-  loading: () => <div>Carregando...</div>,
-  ssr: false
-})
+import Sidebar from '../components/Sidebar'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
