@@ -102,13 +102,19 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
+backup/
 
-# Database files (opcional - remova se quiser incluir)
+# Database files
 *.db
 *.sqlite
 *.sqlite3
 
-# Arquivos de compactação
+# Archive files
 *.zip
 *.rar
-*.7z 
+*.7z
+*.tar
+*.gz
+
+# Local development files
+*.local 
