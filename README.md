@@ -64,7 +64,7 @@ O site está configurado para deploy automático no **Vercel**:
 
 1. Conecte o repositório GitHub ao Vercel
 2. Deploy automático a cada push
-3. URL: https://mr-arnold.vercel.app
+3. URL: https://mrarnold-barbearia.vercel.app
 
 ## 📁 Estrutura do Projeto
 
@@ -130,4 +130,6 @@ Este projeto é privado e pertence à Barbearia Mr Arnold.
 
 ---
 
-**Desenvolvido com ❤️ por Camila Nakazato para a Barbearia Mr Arnold** 
+**Desenvolvido com ❤️ por Camila Nakazato para a Barbearia Mr Arnold**
+
+*Última atualização: Dezembro 2024* 
