@@ -112,7 +112,13 @@ mr-arnold/
 - **CDN:** Global
 - **Domínio:** Personalizado
 
-## 📞 Contato
+## 📞 Suporte Técnico
+
+- **Desenvolvedora:** Camila Nakazato
+- **Email:** camila.nakazato67@gmail.com
+- **WhatsApp:** (67) 99256-7964
+
+## 📞 Contato da Barbearia
 
 - **Email:** mrarnoldbarbearia@gmail.com
 - **WhatsApp:** (67) 99894-2928
@@ -124,4 +130,4 @@ Este projeto é privado e pertence à Barbearia Mr Arnold.
 
 ---
 
-**Desenvolvido com ❤️ para a Barbearia Mr Arnold** 
+**Desenvolvido com ❤️ por Camila Nakazato para a Barbearia Mr Arnold** 
