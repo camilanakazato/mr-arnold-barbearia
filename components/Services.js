@@ -24,7 +24,7 @@ export default function Services() {
       <h2>Serviços</h2>
       
       <div className="servicos-grupo">
-        <h3><Image src="/imgs/cabelo-icon.png" alt="Cabelo" width={40} height={40} className="servico-icone" /> Cabelo</h3>
+        <h3><Image src="/imgs/cabelo-icon.png" alt="Cabelo" width={56} height={56} className="servico-icone" /> Cabelo</h3>
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Corte</h4>
@@ -46,7 +46,7 @@ export default function Services() {
       </div>
 
       <div className="servicos-grupo">
-        <h3><Image src="/imgs/barba-icon.png" alt="Barba" width={40} height={40} className="servico-icone" /> Barba</h3>
+        <h3><Image src="/imgs/barba-icon.png" alt="Barba" width={56} height={56} className="servico-icone" /> Barba</h3>
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Barba</h4>
@@ -68,7 +68,7 @@ export default function Services() {
       </div>
 
       <div className="servicos-grupo">
-        <h3><Image src="/imgs/combo-icon.png" alt="Combo Corte e Barba" width={40} height={40} className="servico-icone" /> Corte e Barba</h3>
+        <h3><Image src="/imgs/combo-icon.png" alt="Combo Corte e Barba" width={56} height={56} className="servico-icone" /> Corte e Barba</h3>
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Combo</h4>
@@ -80,7 +80,7 @@ export default function Services() {
       </div>
 
       <div className="servicos-grupo">
-        <h3><Image src="/imgs/sobrancelha-icon.png" alt="Sobrancelha" width={40} height={40} className="servico-icone" /> Sobrancelha</h3>
+        <h3><Image src="/imgs/sobrancelha-icon.png" alt="Sobrancelha" width={56} height={56} className="servico-icone" /> Sobrancelha</h3>
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Sobrancelha</h4>
@@ -92,7 +92,7 @@ export default function Services() {
       </div>
 
       <div className="servicos-grupo">
-        <h3><Image src="/imgs/depilacao-icon.png" alt="Depilação" width={40} height={40} className="servico-icone" /> Depilações</h3>
+        <h3><Image src="/imgs/depilacao-icon.png" alt="Depilação" width={56} height={56} className="servico-icone" /> Depilações</h3>
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Depilação de nariz</h4>
