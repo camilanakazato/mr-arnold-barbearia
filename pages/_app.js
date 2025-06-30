@@ -37,7 +37,6 @@ export default function App({ Component, pageProps }) {
         
         {/* Preload crítico */}
         <link rel="preload" href="/videos/video-inicio.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/imgs/logo-barbearia.png" as="image" />
       </Head>
       <Component {...pageProps} />
     </>
