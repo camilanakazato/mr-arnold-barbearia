@@ -59,7 +59,7 @@ export default function Home() {
           onNavigate={scrollToSection}
         />
 
-        <VideoHero />
+        <VideoHero isScrolled={isHeaderVisible} />
         
         <main>
           <section id="inicio" className="hero">

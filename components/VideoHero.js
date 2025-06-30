@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-export default function VideoHero() {
+export default function VideoHero({ isScrolled }) {
   return (
-    <div className="video-hero-container">
+    <div id="top" className="video-hero-container">
       <video
         className="video-hero"
         src="/videos/video-inicio.mp4"
@@ -14,13 +14,13 @@ export default function VideoHero() {
       />
       
       <div className="scroll-down-btn-container">
-        <a href="#inicio" className="scroll-down-btn" aria-label="Rolar para baixo">
+        <a href={isScrolled ? '#top' : '#inicio'} className="scroll-down-btn" aria-label={isScrolled ? 'Rolar para o topo' : 'Rolar para baixo'}>
           <Image
             src="/imgs/green-arrow.png"
-            alt="Descer"
+            alt={isScrolled ? 'Subir' : 'Descer'}
             width={24}
             height={24}
-            className="arrow-down"
+            className={`arrow-down ${isScrolled ? 'arrow-up' : ''}`}
           />
         </a>
       </div>

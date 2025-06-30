@@ -159,7 +159,11 @@ header {
   width: 24px;
   height: 24px;
   filter: invert(1);
-  transition: opacity 0.5s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+}
+
+.arrow-down.arrow-up {
+    transform: rotate(180deg);
 }
 
 .video-hero-container.shrink .scroll-down-btn-container {
