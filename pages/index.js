@@ -53,11 +53,11 @@ export default function Home() {
             <Barbers />
           </section>
 
-          <section id="produtos">
+          <section id="produtos" className="bg-verde">
             <Products />
           </section>
 
-          <section id="resultados">
+          <section id="resultados" className="bg-gradiente-cinza">
             <Results />
           </section>
 
