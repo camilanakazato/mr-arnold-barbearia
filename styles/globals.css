@@ -464,15 +464,17 @@ header {
 }
 
 #jaboque-msg {
+  display: block;
+  margin-top: 1rem;
   color: #2ecc40;
-  font-size: 1rem;
 }
 
 /* Seções Gerais */
 section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
 }
 
 section h2 {
@@ -1551,4 +1553,9 @@ a {
 }
 .slick-next {
     right: -40px;
-} 
+}
+
+/* main {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+} */ 
