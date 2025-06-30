@@ -65,7 +65,7 @@ export default function Home() {
             <Tips />
           </section>
 
-          <section id="contato">
+          <section id="contato" className="bg-gradiente-cinza">
             <Contact />
           </section>
         </main>
