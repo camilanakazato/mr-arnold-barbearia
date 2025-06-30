@@ -13,6 +13,22 @@ import Sidebar from '../components/Sidebar'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight - 100) {
+        setIsHeaderVisible(true)
+      } else {
+        setIsHeaderVisible(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   // Smooth scroll para âncoras
   const scrollToSection = (sectionId) => {
@@ -30,7 +46,10 @@ export default function Home() {
       </Head>
 
       <div className="app">
-        <Header onMenuToggle={() => setIsSidebarOpen(true)} />
+        <Header 
+          onMenuToggle={() => setIsSidebarOpen(true)} 
+          isVisible={isHeaderVisible}
+        />
         
         <Sidebar 
           isOpen={isSidebarOpen} 

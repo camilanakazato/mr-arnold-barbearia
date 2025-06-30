@@ -24,6 +24,25 @@ export default function VideoHero() {
           />
         </a>
       </div>
+
+      <div className="video-hero-footer">
+        <Image
+          src="/imgs/logo-barbearia.png"
+          alt="Logo Mr Arnold Barbearia"
+          width={80}
+          height={80}
+          className="footer-logo"
+          priority
+        />
+        <div className="footer-title">Mr Arnold Barbearia</div>
+        <ul className="footer-nav">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#barbeiros">Profissionais</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
     </div>
   )
 } 
