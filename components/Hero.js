@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
 export default function Hero() {
   const [formData, setFormData] = useState({ email: '', phone: '' })
@@ -27,44 +26,31 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero">
-      <motion.div
-        className="hero-content"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+    <>
+      <div className="hero-content">
         <Image
           src="/imgs/logo-barbearia.png"
           alt="Logo Mr Arnold Barbearia"
           width={220}
           height={220}
           className="logo-hero"
+          style={{display:'block',margin:'0 auto 20px auto',maxWidth:'220px',width:'50%',height:'auto'}}
           priority
         />
         <h1>Bem-vindo à Mr Arnold Barbearia</h1>
         <p>Tradição, estilo e cuidado para você se sentir único.</p>
-      </motion.div>
+      </div>
       
-      <motion.div
-        className="agendamento-card"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <div className="agendamento-card">
         <h2>Conheça a experiência completa da nossa barbearia — agende seu horário com praticidade!</h2>
         <div className="agendamento-opcoes">
           <p>Use o site ou baixe o app TRINKS e agende quando quiser, de onde estiver.</p>
           <div className="agendamento-botoes">
-            <motion.a
+            <a
               href="https://www.trinks.com/mr-arnold"
               target="_blank"
               rel="noopener noreferrer"
               className="agendamento-btn trinks-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               <Image
                 src="/imgs/trinks-icon.png"
@@ -73,14 +59,12 @@ export default function Hero() {
                 height={24}
               />
               <span>Agendar pelo Site</span>
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://play.google.com/store/apps/details?id=com.trinks.m"
               target="_blank"
               rel="noopener noreferrer"
               className="agendamento-btn app-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               <Image
                 src="/imgs/play-store-icon.png"
@@ -89,20 +73,14 @@ export default function Hero() {
                 height={24}
               />
               <span>Baixar App</span>
-            </motion.a>
+            </a>
           </div>
         </div>
-      </motion.div>
+      </div>
       
-      <motion.div
-        className="desconto-box"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
+      <div className="desconto-box">
         <h2>Ganhe 10% de desconto na primeira visita!</h2>
-        <form onSubmit={handleSubmit} id="desconto-form">
+        <form id="desconto-form" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
@@ -119,26 +97,12 @@ export default function Hero() {
             onChange={handleInputChange}
             required
           />
-          <motion.button
-            type="submit"
-            disabled={isSubmitting}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'Enviando...' : 'Quero meu desconto'}
-          </motion.button>
+          </button>
         </form>
-        {message && (
-          <motion.span
-            id="desconto-msg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="success-message"
-          >
-            {message}
-          </motion.span>
-        )}
-      </motion.div>
-    </section>
+        {message && <span id="desconto-msg">{message}</span>}
+      </div>
+    </>
   )
 } 

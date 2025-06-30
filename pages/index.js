@@ -38,10 +38,10 @@ export default function Home() {
           onNavigate={scrollToSection}
         />
 
-        <VideoHero onScrollDown={() => scrollToSection('inicio')} />
+        <VideoHero />
         
         <main>
-          <section id="inicio">
+          <section id="inicio" className="hero">
             <Hero />
           </section>
 
