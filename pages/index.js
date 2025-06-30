@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 import VideoHero from '../components/VideoHero'
 import Hero from '../components/Hero'
-import Services from '../components/Services'
 import Barbers from '../components/Barbers'
+import Services from '../components/Services'
 import Products from '../components/Products'
 import Results from '../components/Results'
 import Tips from '../components/Tips'
 import Contact from '../components/Contact'
-import Sidebar from '../components/Sidebar'
+import Footer from '../components/Footer'
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -41,8 +42,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mr Arnold Barbearia - Tradição, Estilo e Cuidado</title>
-        <meta name="description" content="Barbearia Mr Arnold em Campo Grande/MS. Cortes modernos, barba bem feita e produtos de qualidade. Agende seu horário online!" />
+        <title>Mr Arnold Barbearia</title>
+        <meta name="description" content="Mr Arnold Barbearia em Campo Grande, MS. Tradição, estilo e cuidado para você se sentir único." />
+        <link rel="icon" href="/imgs/logo-barbearia.png" />
       </Head>
 
       <div className="app">
@@ -63,31 +65,16 @@ export default function Home() {
           <section id="inicio" className="hero">
             <Hero />
           </section>
-
-          <section id="servicos">
-            <Services />
-          </section>
-
-          <section id="barbeiros">
-            <Barbers />
-          </section>
-
-          <section id="produtos" className="bg-verde">
-            <Products />
-          </section>
-
-          <section id="resultados" className="bg-gradiente-cinza">
-            <Results />
-          </section>
-
-          <section id="dicas" className="bg-gradiente-verde">
-            <Tips />
-          </section>
-
-          <section id="contato" className="bg-gradiente-cinza">
-            <Contact />
-          </section>
+          
+          <Barbers />
+          <Services />
+          <Products />
+          <Results />
+          <Tips />
+          <Contact />
         </main>
+
+        <Footer />
       </div>
     </>
   )

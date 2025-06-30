@@ -1,55 +1,56 @@
 import Image from 'next/image';
+import { useState } from 'react';
+
+const HistoryCard = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div className={`historia-card ${isFlipped ? 'flipped' : ''}`} onClick={() => setIsFlipped(!isFlipped)}>
+      <div className="historia-card-inner">
+        <div className="historia-card-front">
+          <Image src="/imgs/logo-barbearia.png" alt="Mr. Arnold" width={120} height={120} className="historia-card-logo" />
+          <h3 className="historia-card-title">Já conhece a Mr. Arnold?</h3>
+          <p>(Clique para saber mais)</p>
+        </div>
+        <div className="historia-card-back">
+          <h3 className="historia-card-title">Nossa História</h3>
+          <p className="historia-card-texto">
+            Fundada em 2024, a Mr. Arnold Barbearia nasceu da paixão por resgatar a tradição das barbearias clássicas, adaptando-a ao homem moderno. Nosso espaço é um refúgio onde a arte da barbearia é celebrada com excelência e um atendimento que faz você se sentir em casa.
+            <br/><br/>
+            Com uma equipe de barbeiros experientes e apaixonados pelo que fazem, oferecemos mais do que cortes e barbas: entregamos uma experiência de cuidado e bem-estar. Cada detalhe, desde nossas toalhas quentes até a seleção de produtos premium, foi pensado para garantir sua satisfação.
+            <br/><br/>
+            Venha para a Mr. Arnold e descubra um lugar onde tradição e estilo se encontram.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Contact() {
   return (
-    <section className="contato">
+    <section id="contato" className="contato">
       <h2>Localização & Atendimento</h2>
       <div className="contato-container">
-        {/* Coluna da Esquerda */}
-        <div className="contato-coluna-esquerda">
-          <div className="contato-info">
-            <p><strong>Endereço:</strong><br />Rua Dr Arthur Jorge, 1054 - Centro, Campo Grande/MS</p>
-            <p><strong>Telefone:</strong><br />(67) 99894-2928</p>
-            <p><strong>Email:</strong><br />mrarnoldbarbearia@gmail.com</p>
-          </div>
+        <div className="contato-info">
+          <p><strong>Endereço:</strong> Rua Dr Arthur Jorge, 1054 - Centro, Campo Grande/MS</p>
+          <p><strong>Telefone:</strong> (67) 99894-2928</p>
+          <p><strong>Email:</strong> mrarnoldbarbearia@gmail.com</p>
+          
           <div className="contato-redes">
-            <a href="https://api.whatsapp.com/send/?phone=5567992823631&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="contato-link whatsapp">
+            <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer">
               <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} />
               <span>Fale conosco por aqui!</span>
             </a>
-            <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-link instagram">
+            <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer">
               <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} />
-              <div>
-                <span>Segue a gente no Instagram!</span>
-                <p className="contato-descricao">Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.</p>
-              </div>
+              <span><strong>Segue a gente no Instagram!</strong><br/>Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.</span>
             </a>
           </div>
         </div>
-
-        {/* Coluna da Direita */}
-        <div className="contato-coluna-direita">
-          <div className="historia-card">
-            <h3>A História da Mr. Arnold</h3>
-            <p>A Mr. Arnold Barbearia nasceu da paixão de um jovem casal, Raul e Naka, que sonhavam em criar um espaço onde a tradição da barbearia clássica encontrasse as tendências modernas. O nome é uma homenagem ao seu amado gato, Mr. Arnold, que representa a independência, o estilo e o conforto que desejavam oferecer aos seus clientes. Hoje, a barbearia é um ponto de encontro para amigos, um lugar para relaxar e, claro, para sair com um visual impecável.</p>
-          </div>
-          <div className="horario-funcionamento">
-            <h3>Horário de Funcionamento</h3>
-            <div className="horarios">
-              <div className="horario-item">
-                <span className="dia">Segunda a Sexta:</span>
-                <span className="horario">08:00 - 19:00</span>
-              </div>
-              <div className="horario-item">
-                <span className="dia">Sábado:</span>
-                <span className="horario">08:00 - 18:00</span>
-              </div>
-              <div className="horario-item">
-                <span className="dia">Domingo:</span>
-                <span className="horario">Fechado</span>
-              </div>
-            </div>
-          </div>
+        
+        <div className="historia-card-container">
+          <HistoryCard />
         </div>
       </div>
     </section>

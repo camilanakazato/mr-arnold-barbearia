@@ -772,26 +772,76 @@ section h2 {
   overflow: hidden;
 }
 
-.produto-img {
-  border-radius: 8px;
-  margin-bottom: 1rem;
+.produto-img-container {
+  width: 100%;
+  height: 180px; /* Altura fixa para todas as imagens */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 4px solid #2ecc40; /* Borda verde como pedido */
+  background: #fff;
+}
+
+.produto-card .produto-img {
   transition: transform 0.3s ease;
 }
 
 .produto-card:hover .produto-img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .produto-card h3 {
-  color: #2ecc40;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  word-break: break-word;
+  min-height: 3.5em;
+  line-height: 1.2;
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .produto-descricao {
-  color: #e0ffe0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
   font-size: 0.9rem;
+  color: #e0ffe0;
+  margin-top: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  pointer-events: none;
   line-height: 1.4;
+}
+
+.produto-card:hover .produto-descricao {
+  opacity: 1;
+  max-height: 200px; /* Altura suficiente para a descrição */
+  margin-top: -10px; /* Ajuste para subir a descrição */
+  pointer-events: auto;
+}
+
+/* Garante espaçamento entre os cards no carrossel */
+.slick-slide > div {
+  padding: 0 10px;
+}
+
+/* Para telas menores, a descrição é fixa e visível */
+@media (max-width: 768px) {
+  .produto-descricao {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 0.5rem;
+    position: static;
+    pointer-events: auto;
+  }
+
+  .produto-card h3 {
+    min-height: auto;
+  }
+  
+  .produto-card:hover .produto-descricao {
+    margin-top: 0.5rem;
+  }
 }
 
 /* Resultados */
@@ -1341,4 +1391,88 @@ a:focus {
 
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Card da História */
+.contato-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.contato-info {
+  flex: 1;
+  min-width: 300px;
+}
+.historia-card-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+.historia-card {
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.historia-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.historia-card.flipped .historia-card-inner {
+  transform: rotateY(180deg);
+}
+.historia-card-front, .historia-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  border: 3px solid #2ecc40;
+  background: linear-gradient(145deg, #1a2a1a, #101510);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+.historia-card-back {
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  overflow-y: auto;
+}
+.historia-card-logo {
+  margin-bottom: 1rem;
+}
+.historia-card-title {
+  color: #2ecc40;
+  margin-bottom: 0.5rem;
+}
+.historia-card-texto {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Rodapé */
+.site-footer {
+  background: #0a100a;
+  color: #a0a0a0;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #1a2a1a;
+  width: 100%;
+}
+.footer-content p {
+  margin: 0.5rem 0;
 } 
