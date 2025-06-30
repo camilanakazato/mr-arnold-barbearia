@@ -472,6 +472,10 @@ section h2 {
   background: linear-gradient(to bottom, #101510 0%, #1a1a1a 100%);
 }
 
+.bg-gradiente-verde {
+  background: linear-gradient(to bottom, #1a1a1a 0%, #101510 100%);
+}
+
 .bg-cinza {
   background: #1a1a1a; /* New gray color */
 }

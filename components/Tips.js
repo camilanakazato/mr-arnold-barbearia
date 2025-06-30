@@ -1,123 +1,68 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+import Image from 'next/image';
+import Slider from 'react-slick';
 
 export default function Tips() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
   const tips = [
     {
-      title: 'Dica 1: Hidratação Diária',
+      title: 'Dica 1: Hidratação da Barba',
       image: '/imgs/dica1.jpg',
-      legend: 'Mantenha seu cabelo hidratado diariamente com produtos específicos para seu tipo de fio. Isso garante brilho, maciez e saúde capilar.'
+      legend: 'Use óleos e balms específicos para barba. Eles hidratam os fios e a pele, evitam a coceira e deixam a barba mais macia e alinhada.'
     },
     {
       title: 'Dica 2: Escovação Correta',
       image: '/imgs/dica2.jpg',
-      legend: 'Escove seu cabelo com cuidado, começando pelas pontas e subindo gradualmente. Isso evita quebra e danos aos fios.'
+      legend: 'Penteie sua barba diariamente. Isso ajuda a desembaraçar, remover pelos soltos e treinar os fios para crescerem na direção certa.'
     },
     {
-      title: 'Dica 3: Proteção Solar',
+      title: 'Dica 3: Lavagem Adequada',
       image: '/imgs/dica3.jpg',
-      legend: 'Proteja seu cabelo do sol usando chapéus ou produtos com proteção UV. O sol pode ressecar e danificar os fios.'
+      legend: 'Lave a barba com shampoo próprio para ela, de 2 a 3 vezes por semana. Shampoos comuns podem ressecar a pele do rosto.'
     },
     {
-      title: 'Dica 4: Alimentação Balanceada',
+      title: 'Dica 4: Apare Regularmente',
       image: '/imgs/dica4.jpg',
-      legend: 'Uma alimentação rica em vitaminas e minerais é essencial para a saúde dos cabelos. Consuma frutas, verduras e proteínas.'
+      legend: 'Mesmo que esteja deixando a barba crescer, aparar as pontas e definir o formato a cada 2-3 semanas ajuda a manter um visual limpo e saudável.'
     },
     {
-      title: 'Dica 5: Visitas Regulares',
+      title: 'Dica 5: Cuidado com a Pele',
       image: '/imgs/dica5.jpg',
-      legend: 'Mantenha visitas regulares à barbearia para cortes e tratamentos. Isso garante que seu cabelo sempre esteja em dia.'
+      legend: 'Não se esqueça da pele sob a barba. A esfoliação semanal remove células mortas e previne pelos encravados, garantindo um crescimento saudável.'
     }
-  ]
+  ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % tips.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [tips.length])
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % tips.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + tips.length) % tips.length)
-  }
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index)
-  }
+  const sliderSettings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+  };
 
   return (
     <section className="dicas">
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Dicas de Cuidado
-      </motion.h2>
+      <h2>Dicas de Cuidado</h2>
       
       <div className="dicas-carousel-container">
-        <motion.button
-          className="dicas-carousel-arrow left"
-          onClick={prevSlide}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          &#8592;
-        </motion.button>
-        
-        <div className="dicas-carousel">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              className="dica-slide"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h3 className="dica-titulo">{tips[currentSlide].title}</h3>
-              <Image
-                src={tips[currentSlide].image}
-                alt={tips[currentSlide].title}
-                width={320}
-                height={240}
-                className="dica-img"
-              />
-              <p className="dica-legenda">{tips[currentSlide].legend}</p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        
-        <motion.button
-          className="dicas-carousel-arrow right"
-          onClick={nextSlide}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          &#8594;
-        </motion.button>
-      </div>
-      
-      <div className="dicas-carousel-indicators">
-        {tips.map((_, index) => (
-          <motion.button
-            key={index}
-            className={`indicator ${index === currentSlide ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          />
-        ))}
+        <Slider {...sliderSettings}>
+          {tips.map((tip, index) => (
+            <div key={index}>
+              <div className="dica-slide">
+                <h3 className="dica-titulo">{tip.title}</h3>
+                <Image
+                  src={tip.image}
+                  alt={tip.title}
+                  width={400}
+                  height={300}
+                  className="dica-img"
+                />
+                <p className="dica-legenda">{tip.legend}</p>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
-  )
+  );
 } 

@@ -61,7 +61,7 @@ export default function Home() {
             <Results />
           </section>
 
-          <section id="dicas">
+          <section id="dicas" className="bg-gradiente-verde">
             <Tips />
           </section>
 
