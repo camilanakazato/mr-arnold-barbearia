@@ -4,12 +4,12 @@ export default function Header({ onMenuToggle, isVisible }) {
   return (
     <header className={`site-header ${isVisible ? 'visible' : ''}`}>
       <nav className="navbar">
-        <div className="logo-nav">
+        <div className="logo-nav-row">
           <Image
             src="/imgs/logo-barbearia.png"
             alt="Logo Mr Arnold Barbearia"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
             className="logo-barbearia-nav"
           />
           <a href="#inicio" className="logo-link">

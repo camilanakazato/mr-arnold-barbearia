@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Sidebar({ isOpen, onClose, onNavigate }) {
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function Sidebar({ isOpen, onClose, onNavigate }) {
 
           {/* Sidebar */}
           <motion.aside
-            className="sidebar-menu"
+            className={`sidebar-menu${isOpen ? ' open' : ''}`}
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -100,6 +101,7 @@ export default function Sidebar({ isOpen, onClose, onNavigate }) {
                 justifyContent: 'center',
                 zIndex: 10001
               }}
+              aria-label="Fechar menu lateral"
             >
               -
             </motion.button>

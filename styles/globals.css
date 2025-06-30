@@ -58,11 +58,28 @@ header {
   padding: 1rem 2rem;
 }
 
-.logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2ecc40;
-  letter-spacing: 2px;
+.logo-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo-barbearia-nav {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  display: block;
+}
+
+.logo-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.7rem;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  margin-left: 0;
 }
 
 .nav-links {
@@ -86,12 +103,23 @@ header {
 
 /* Menu Toggle */
 .menu-toggle {
-  background: none;
+  margin-left: 2rem;
+  font-size: 2.2rem;
+  background: #ff6b35;
+  color: #fff;
   border: none;
-  color: white;
-  font-size: 2rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  display: none;
+  transition: background 0.2s;
+}
+
+.menu-toggle:hover {
+  background: #ff8c42;
 }
 
 .menu-toggle.open {
@@ -1573,4 +1601,63 @@ a {
 }
 .logo-principal {
   display: block;
+}
+
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100vh;
+  background: #101510;
+  box-shadow: -2px 0 16px rgba(0,0,0,0.25);
+  z-index: 2000;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: right 0.35s cubic-bezier(.4,1.7,.6,.8);
+}
+.sidebar-menu.open {
+  right: 0;
+}
+.close-sidebar {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: #ff6b35;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2100;
+  transition: background 0.2s;
+}
+.close-sidebar:hover {
+  background: #ff8c42;
+}
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0 0;
+  width: 100%;
+}
+.sidebar-menu ul li {
+  margin-bottom: 1.5rem;
+}
+.sidebar-menu ul li a {
+  color: #2ecc40;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.sidebar-menu ul li a:hover {
+  color: #fff;
 } 
