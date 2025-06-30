@@ -3,18 +3,17 @@ import Image from 'next/image'
 
 export default function Services() {
   // O card de agendamento é repetido, então podemos defini-lo como um componente para reutilização
-  const AgendamentoCard = () => (
-    <div className="servico-card servico-agendamento">
+  const AgendamentoCard = (props) => (
+    <div className="servico-card servico-agendamento" {...props}>
       <p className="servico-agendamento-texto">
-        Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.<br/>
-        Clique para agendar pelo site ou baixe o app TRINKS e tenha tudo na palma da mão.
+        Escolha todos os serviços que deseja de uma só vez e garanta seu atendimento com nossos profissionais.
       </p>
       <div className="servico-agendamento-links">
-        <a href="https://www.trinks.com/mr-arnold" target="_blank" rel="noopener noreferrer" className="agendamento-link">
-          <Image src="/imgs/trinks-icon.png" alt="Agendar pelo site Trinks" width={28} height={28} className="agendamento-icone" /> Agendar pelo Site
+        <a href="https://www.trinks.com/mr-arnold" target="_blank" rel="noopener noreferrer" className="agendamento-link agendamento-trinks-btn">
+          <Image src="/imgs/alt-trinks-icon.png" alt="Agendar pelo site Trinks" width={48} height={48} className="agendamento-icone" /> Agendar pelo Site
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" rel="noopener noreferrer" className="agendamento-link">
-          <Image src="/imgs/play-store-icon.png" alt="Baixar App Trinks" width={28} height={28} className="agendamento-icone" /> Baixar App
+        <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" rel="noopener noreferrer" className="agendamento-link agendamento-app-btn">
+          <Image src="/imgs/alt-playstore-icon.png" alt="Baixar App Trinks" width={48} height={48} className="agendamento-icone" /> Baixar App
         </a>
       </div>
     </div>
@@ -34,7 +33,10 @@ export default function Services() {
           </div>
           <div className="servico-card">
             <h4>Corte apenas máquina</h4>
-            <p className="servico-descricao">Corte prático e uniforme somente com máquina, ideal para quem prefere simplicidade e agilidade. <em>*degradê não incluso.</em></p>
+            <p className="servico-descricao">
+              Corte prático e uniforme somente com máquina, ideal para quem prefere simplicidade e agilidade.<br />
+              <span style={{display: 'block', fontStyle: 'italic', textAlign: 'center', fontSize: '0.95rem', marginTop: '0.2rem'}}>*degradê não incluso.</span>
+            </p>
             <div className="servico-valor">R$35</div>
           </div>
           <div className="servico-card">
@@ -73,7 +75,7 @@ export default function Services() {
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Combo</h4>
-            <p className="servico-descricao">Corte e barba com cuidado completo do início ao fim</p>
+            <p className="servico-descricao">Corte e barba com acabamento impecável, em um único atendimento pensado para valorizar seu estilo com praticidade e cuidado.</p>
             <div className="servico-valor">R$80</div>
           </div>
           <AgendamentoCard />
@@ -114,10 +116,10 @@ export default function Services() {
         <div className="servicos-cards">
           <div className="servico-card">
             <h4>Banho de Gelo</h4>
-            <p className="servico-descricao">Terapia capilar refrescante com esfoliação, limpeza do couro cabeludo, hidratação dos fios e massagem relaxante. Auxilia na prevenção da caspa, melhora a circulação sanguínea. É ideal para cuidar dos cabelos expostos a suor e poeira.</p>
+            <p className="servico-descricao">Terapia capilar refrescante com esfoliação, limpeza do couro cabeludo, hidratação dos fios e massagem relaxante. Auxilia na prevenção da caspa. É ideal para cuidar dos cabelos expostos a suor e poeira.</p>
             <div className="servico-valor">R$60</div>
           </div>
-          <div className="servico-card">
+          <div className="servico-card" style={{minHeight: '320px'}}>
             <h4>Hidratação</h4>
             <p className="servico-descricao">Tratamento nutritivo para cabelos ressecados ou danificados. Mais brilho, maciez e controle.</p>
             <div className="servico-valor">R$45</div>
@@ -146,7 +148,7 @@ export default function Services() {
             <p className="servico-descricao">Limpeza profunda dos fios e couro cabeludo, com finalização na secagem. Ideal antes de um corte ou evento.</p>
             <div className="servico-valor">R$35</div>
           </div>
-          <AgendamentoCard />
+          <AgendamentoCard style={{minHeight: '310px'}} />
         </div>
       </div>
     </section>

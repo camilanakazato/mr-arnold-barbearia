@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import Image from 'next/image'
-import Slider from 'react-slick'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 // Componente para o formulário de desconto Jaboque
 const JaboqueDiscountForm = () => {
@@ -82,19 +86,6 @@ export default function Products() {
     ? products 
     : products.filter(product => product.category === activeCategory)
 
-  const sliderSettings = {
-    dots: true,
-    infinite: filteredProducts.length > 4,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 2,
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 2 } },
-      { breakpoint: 900, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }
-    ]
-  }
-
   return (
     <section id="produtos" className="produtos">
       <h2>Produtos</h2>
@@ -112,19 +103,32 @@ export default function Products() {
       </div>
 
       <div className="produtos-carousel-container">
-        <Slider {...sliderSettings}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={24}
+          slidesPerView={4}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            1200: { slidesPerView: 4 },
+            900: { slidesPerView: 3 },
+            600: { slidesPerView: 2 },
+            0: { slidesPerView: 1 }
+          }}
+          style={{ paddingBottom: '3.5rem' }}
+        >
           {filteredProducts.map((product) => (
-            <div key={product.image} className="produto-card-wrapper">
+            <SwiperSlide key={product.image}>
               <div className="produto-card">
+                <h3>{product.name.replace('Pente para Barba | Jaboque', 'Pente para Barba').replace(/^-\s*/, '')}</h3>
                 <div className="produto-img-container">
                   <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="produto-img" />
                 </div>
-                <h3>{product.name}</h3>
                 <p className="produto-descricao">{product.description}</p>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
       
       <JaboqueDiscountForm />

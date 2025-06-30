@@ -58,12 +58,12 @@ export default function Hero() {
         <div className="agendamento-opcoes">
           <p>Use o site ou baixe o app TRINKS e agende quando quiser, de onde estiver.</p>
           <div className="agendamento-botoes">
-            <a href="https://www.trinks.com/mr-arnold" target="_blank" rel="noopener noreferrer" className="agendamento-btn trinks-btn">
-              <Image src="/imgs/trinks-icon.png" alt="Trinks" width={28} height={28} />
+            <a href="https://www.trinks.com/mr-arnold" target="_blank" rel="noopener noreferrer" className="agendamento-btn hero-trinks-btn">
+              <Image src="/imgs/alt-trinks-icon.png" alt="Trinks" width={48} height={48} />
               <span>Agendar pelo Site</span>
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" rel="noopener noreferrer" className="agendamento-btn app-btn">
-              <Image src="/imgs/play-store-icon.png" alt="Google Play" width={28} height={28} />
+            <a href="https://play.google.com/store/apps/details?id=com.trinks.m" target="_blank" rel="noopener noreferrer" className="agendamento-btn hero-app-btn">
+              <Image src="/imgs/alt-playstore-icon.png" alt="Google Play" width={48} height={48} />
               <span>Baixar App</span>
             </a>
           </div>
