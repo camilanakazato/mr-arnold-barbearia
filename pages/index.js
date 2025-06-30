@@ -66,8 +66,8 @@ export default function Home() {
             <Hero />
           </section>
           
-          <Barbers />
           <Services />
+          <Barbers />
           <Products />
           <Results />
           <Tips />

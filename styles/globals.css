@@ -13,7 +13,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', Arial, sans-serif;
-  background: #101510;
+  background: linear-gradient(to bottom, #1a2a1a, #101510);
   color: #f5f5ff;
 }
 
@@ -516,31 +516,33 @@ section h2 {
 }
 
 .servicos-grupo {
+  margin-bottom: 3rem;
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .servicos-grupo h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   font-size: 1.8rem;
-  color: #4CAF50;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-align: center;
+  color: #f5f5f5;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2ecc40;
 }
 
 .servico-icone {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  background: #181f18;
-  padding: 0.5rem;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .servicos-cards {
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .servico-card {
@@ -679,19 +681,32 @@ section h2 {
   margin-top: 2rem;
 }
 
-.barbeiro-card {
-  background: #1a2e1a;
-  border: 2px solid #2ecc40;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
+.barbeiros-lista {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
-.barbeiro-img {
-  border-radius: 50%;
-  margin: 0 auto 1rem auto;
-  box-shadow: 0 4px 16px rgba(46, 204, 64, 0.2);
+.barbeiro-card {
+  background: #1a2a1a;
+  border: 2px solid #2ecc40;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  width: 320px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.barbeiro-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 3px solid #2ecc40;
 }
 
 .barbeiro-card h3 {
@@ -864,9 +879,8 @@ section h2 {
 
 .portfolio-cards {
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
-  align-items: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -927,13 +941,13 @@ section h2 {
 }
 
 .portfolio-card-instagram {
-  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  text-decoration: none;
+  text-align: center;
 }
 
 .portfolio-card-instagram:hover {
@@ -941,20 +955,16 @@ section h2 {
 }
 
 .portfolio-card-instagram .portfolio-legenda {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-top: 1rem;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .portfolio-instagram-icon {
-  width: 80px;
-  height: 80px;
-  filter: invert(1);
-  transition: transform 0.3s;
-}
-
-.portfolio-card-instagram:hover .portfolio-instagram-icon {
-  transform: scale(1.1);
+  width: 60px !important;
+  height: 60px !important;
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 900px) {
@@ -1122,10 +1132,11 @@ section h2 {
 }
 
 .contato-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .contato-info p {
@@ -1135,9 +1146,21 @@ section h2 {
 }
 
 .contato-redes {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contato-redes a {
+  display: flex;
+  align-items: center;
   gap: 1rem;
+  transition: opacity 0.3s;
+}
+
+.contato-redes a:hover {
+  opacity: 0.8;
 }
 
 .contato-link {
@@ -1401,10 +1424,6 @@ a:focus {
   gap: 2rem;
   flex-wrap: wrap;
 }
-.contato-info {
-  flex: 1;
-  min-width: 300px;
-}
 .historia-card-container {
   flex: 1;
   display: flex;
@@ -1475,4 +1494,61 @@ a:focus {
 }
 .footer-content p {
   margin: 0.5rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link {
+  transition: color 0.2s;
+}
+.logo-link:hover {
+    color: white;
+}
+
+/* Dicas de Cuidado Carousel */
+.dicas-carousel-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+.dica-slide {
+    text-align: center;
+    background: #1a2a1a;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid #2ecc40;
+}
+.dica-img {
+    border-radius: 12px;
+    margin: 1rem auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.dica-titulo {
+    color: #2ecc40;
+    margin-bottom: 1rem;
+}
+.dica-legenda {
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+.slick-dots li button:before {
+    color: #f5f5f5 !important;
+    opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+.slick-arrow {
+    z-index: 10;
+}
+.slick-prev {
+    left: -40px;
+}
+.slick-next {
+    right: -40px;
 } 
