@@ -1563,4 +1563,14 @@ a {
 /* main {
     margin: 0 auto;
     padding: 2rem 1rem;
-} */ 
+} */
+
+.hero-logo-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.logo-principal {
+  display: block;
+} 

@@ -40,13 +40,16 @@ const DiscountForm = () => {
 export default function Hero() {
   return (
     <div className="hero-content">
-      <Image 
-        src="/imgs/logo-barbearia.png" 
-        alt="Mr. Arnold Barber Shop" 
-        width={200} 
-        height={200}
-        className="logo-principal"
-      />
+      <div className="hero-logo-center">
+        <Image 
+          src="/imgs/logo-barbearia.png" 
+          alt="Mr. Arnold Barber Shop" 
+          width={260} 
+          height={260}
+          className="logo-principal"
+          priority
+        />
+      </div>
       <h1>Bem-vindo à Mr Arnold Barbearia</h1>
       <p>Tradição, estilo e cuidado para você se sentir único.</p>
       
