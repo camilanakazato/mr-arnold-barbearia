@@ -13,13 +13,11 @@ const HistoryCard = () => {
           <p>(Clique para saber mais)</p>
         </div>
         <div className="historia-card-back">
-          <h3 className="historia-card-title">Nossa História</h3>
           <p className="historia-card-texto">
-            Fundada em 2024, a Mr. Arnold Barbearia nasceu da paixão por resgatar a tradição das barbearias clássicas, adaptando-a ao homem moderno. Nosso espaço é um refúgio onde a arte da barbearia é celebrada com excelência e um atendimento que faz você se sentir em casa.
-            <br/><br/>
-            Com uma equipe de barbeiros experientes e apaixonados pelo que fazem, oferecemos mais do que cortes e barbas: entregamos uma experiência de cuidado e bem-estar. Cada detalhe, desde nossas toalhas quentes até a seleção de produtos premium, foi pensado para garantir sua satisfação.
-            <br/><br/>
-            Venha para a Mr. Arnold e descubra um lugar onde tradição e estilo se encontram.
+            Para quem busca melhorar sua autoestima e se sentir melhor consigo mesmo, Mr. Arnold é uma barbearia que te ajuda a conquistar o seu melhor com um atendimento e estrutura de qualidade, não como barbearias famosas e impessoais de Campo Grande.<br/><br/>
+            Nossa equipe é formada por profissionais experientes, apaixonados pelo que fazem e prontos para oferecer um atendimento de qualidade em cada detalhe: do corte clássico ao moderno, da barba bem feita ao cuidado com a pele e o couro cabeludo.<br/><br/>
+            Mr. Arnold traz a combinação perfeita de qualidade e estrutura com o seu estilo ideal!<br/><br/>
+            Seja bem-vindo à Mr. Arnold — onde estilo e cuidado andam juntos.
           </p>
         </div>
       </div>
@@ -39,18 +37,34 @@ export default function Contact() {
           
           <div className="contato-redes">
             <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer">
-              <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} />
-              <span>Fale conosco por aqui!</span>
+              <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} style={{verticalAlign: 'middle', marginRight: '8px'}} />
+              <span style={{verticalAlign: 'middle'}}>Fale conosco por aqui!</span>
             </a>
-            <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer">
-              <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} />
-              <span><strong>Segue a gente no Instagram!</strong><br/>Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.</span>
-            </a>
+            <div className="contato-instagram-bloco">
+              <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-instagram-link">
+                <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} style={{verticalAlign: 'middle', marginRight: '8px'}} />
+                <span style={{verticalAlign: 'middle'}}><strong>Segue a gente no Instagram!</strong></span>
+              </a>
+              <br />
+              <span className="contato-instagram-subtitulo">Tem corte novo, dica de cuidado e promoção<br/>que só quem acompanha aproveita.</span>
+            </div>
           </div>
         </div>
         
-        <div className="historia-card-container">
-          <HistoryCard />
+        <div className="historia-card-container" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', gap: '6rem', marginRight: '150px' }}>
+          <div className="horario-card">
+            <h3 className="horario-card-title">Horário de Funcionamento</h3>
+            <table className="horario-tabela">
+              <tbody>
+                <tr><td>Segunda à Sexta:</td><td>9h - 19h</td></tr>
+                <tr><td>Sábados:</td><td>9h - 17h</td></tr>
+                <tr><td>Domingos:</td><td>Fechado</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <HistoryCard />
+          </div>
         </div>
       </div>
     </section>

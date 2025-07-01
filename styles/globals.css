@@ -998,212 +998,29 @@ section h2 {
 .portfolio-barbeiros {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3.5rem;
+  margin-top: 2.5rem;
 }
 
-.portfolio-linha h3 {
-  font-size: 2rem;
+.portfolio-linha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.portfolio-barber-name-small {
+  font-size: 1.08rem;
   color: #2ecc40;
-  margin-bottom: 1.2rem;
-  text-align: left;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-left: 320px;
-}
-
-.portfolio-cards {
-  margin-left: 0;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.portfolio-card {
-  background: #181f18;
-  border-radius: 14px;
-  border: none;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(46, 204, 64, 0.13);
-  width: 260px;
-  min-width: 260px;
-  max-width: 260px;
-  text-align: left;
-  text-decoration: none;
-  color: #f5f5f5;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0;
-}
-
-.portfolio-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 0;
-  display: block;
-}
-
-.portfolio-card .portfolio-legenda {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 80%, rgba(0,0,0,0.1) 100%);
-  color: #fff;
-  font-size: 0.97rem;
-  font-weight: 400;
-  padding: 0.7rem 1rem 0.4rem 1rem;
-  border-radius: 0;
-  z-index: 2;
-  min-height: 32px;
-  box-sizing: border-box;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-.portfolio-card-footer {
-  display: none;
-}
-
-.portfolio-card .icon-instagram {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 22px;
-  height: 22px;
-  z-index: 3;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 6px #000);
-}
-
-.portfolio-card:hover {
-  transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 10px 32px rgba(46, 204, 64, 0.18);
-}
-
-@media (max-width: 900px) {
-  .portfolio-cards {
-    gap: 1rem;
-  }
-  .portfolio-card {
-    width: calc(33.333% - 1rem);
-  }
-  .portfolio-card img {
-    height: 200px;
-  }
-}
-
-@media (max-width: 600px) {
-  .portfolio-barbeiros {
-    gap: 3rem;
-  }
-  .portfolio-cards {
-    flex-direction: column;
-  }
-  .portfolio-card {
-    width: 90%;
-  }
-  .portfolio-card img {
-    height: auto;
-  }
-}
-
-.portfolio-card-instagram {
-  background: linear-gradient(135deg, #f09433 0%, #e6683c 40%, #dc2743 70%, #cc2366 90%, #bc1888 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  min-height: 260px;
-  padding: 0;
-}
-
-.portfolio-card-instagram-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  gap: 1.2rem;
-}
-
-.portfolio-instagram-icon-center {
-  width: 70px !important;
-  height: 70px !important;
-  margin-bottom: 0.7rem;
-  filter: none;
-}
-
-.portfolio-legenda-instagram {
-  color: #fff;
-  font-size: 1.15rem;
   font-weight: 600;
-  margin: 0;
-  padding: 0 1rem 0.5rem 1rem;
-  text-align: center;
-}
-
-.portfolio-card-instagram:hover {
-  opacity: 0.9;
-}
-
-.portfolio-card-instagram .portfolio-legenda {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.portfolio-instagram-icon {
-  width: 60px !important;
-  height: 60px !important;
-  filter: brightness(0) invert(1);
-}
-
-@media (max-width: 900px) {
-  .portfolio-card-instagram {
-    padding: 2rem;
-  }
-  .portfolio-instagram-icon {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-@media (max-width: 600px) {
-  .portfolio-card-instagram {
-    padding: 3rem 1rem;
-  }
-  .portfolio-instagram-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-.barbeiro-frase-row {
-  display: flex;
-  align-items: center;
-  margin-left: 120px;
-  margin-bottom: 2.2rem;
-  gap: 2.5rem;
-}
-
-.portfolio-barber-name {
-  font-size: 2rem;
-  color: #2ecc40;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+  letter-spacing: 0.2px;
+  margin-left: 100px;
+  margin-bottom: 0.3rem;
 }
 
 .barbeiro-frase {
+  font-size: 0.98rem;
   font-style: italic;
-  font-size: 1.13rem;
   color: #2ecc40;
   background: rgba(46, 204, 64, 0.13);
   padding: 1.1rem 1.5rem 1.1rem 2.2rem;
@@ -1220,9 +1037,73 @@ section h2 {
   margin: 0 0 1.0rem 100px;
 }
 
-.barbeiro-frase::before,
-.barbeiro-frase::after {
-  display: none !important;
+.portfolio-cards-classic {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 100px;
+}
+
+.portfolio-card {
+  background: #181f18;
+  border-radius: 14px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(46, 204, 64, 0.13);
+  width: 220px;
+  min-width: 220px;
+  max-width: 220px;
+  text-align: left;
+  text-decoration: none;
+  color: #f5f5f5;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+.portfolio-card .portfolio-legenda {
+  padding: 1rem 1rem 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #e0ffe0;
+}
+
+@media (max-width: 900px) {
+  .portfolio-cards-classic {
+    gap: 1rem;
+    margin-left: 40px;
+  }
+  .portfolio-barber-name-small {
+    margin-left: 40px;
+  }
+  .barbeiro-frase {
+    margin-left: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .portfolio-cards-classic {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .portfolio-barber-name-small {
+    margin-left: 0;
+  }
+  .barbeiro-frase {
+    margin-left: 0;
+    max-width: 100%;
+  }
 }
 
 /* Dicas */
@@ -1346,23 +1227,25 @@ section h2 {
 }
 
 .contato-info p {
-  color: #e0ffe0;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin: 0.25rem 0 0.25rem 0;
+  font-size: 1rem;
+  color: #fff;
 }
 
 .contato-redes {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.18rem;
 }
 
-.contato-redes a {
-  display: flex;
+.contato-redes a, .contato-instagram-link {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  transition: opacity 0.3s;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin: 0.12rem 0;
 }
 
 .contato-redes a:hover {
@@ -1639,10 +1522,12 @@ a:focus {
 }
 .historia-card {
   width: 100%;
-  max-width: 450px;
-  height: 300px;
+  min-width: 340px;
+  max-width: 520px;
+  height: 270px;
   perspective: 1000px;
   cursor: pointer;
+  flex: none;
 }
 .historia-card-inner {
   position: relative;
@@ -1662,7 +1547,7 @@ a:focus {
   -webkit-backface-visibility: hidden;
   border-radius: 16px;
   border: 3px solid #2ecc40;
-  background: linear-gradient(145deg, #1a2a1a, #101510);
+  background: linear-gradient(135deg, #22b846 60%, #0e2e13 100%) !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1674,18 +1559,31 @@ a:focus {
   transform: rotateY(180deg);
   align-items: flex-start;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.historia-card-back::-webkit-scrollbar {
+  display: none;
 }
 .historia-card-logo {
   margin-bottom: 1rem;
 }
 .historia-card-title {
-  color: #2ecc40;
+  color: #fff !important;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 .historia-card-texto {
   font-size: 0.95rem;
   line-height: 1.5;
   text-align: left;
+  max-height: 210px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.historia-card-texto::-webkit-scrollbar {
+  display: none;
 }
 
 /* Rodapé */
@@ -1883,4 +1781,666 @@ a {
 .produtos-carousel-container .carousel-nav-overlay.right {
   right: 0;
   background: linear-gradient(to left, rgba(0,0,0,0.45) 70%, transparent 100%);
+}
+
+.portfolio-barbeiros-flip {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  margin-top: 2.5rem;
+}
+
+.portfolio-flip-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card-flip {
+  width: 260px;
+  height: 170px;
+  perspective: 1200px;
+  cursor: pointer;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(46,204,64,0.10);
+  transition: box-shadow 0.3s;
+  outline: none;
+}
+.card-flip:focus {
+  box-shadow: 0 0 0 3px #2ecc40, 0 4px 24px rgba(46,204,64,0.10);
+}
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d;
+}
+.card-flip.flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+.card-flip-front, .card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-flip-front {
+  background: #E55808 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  z-index: 2;
+}
+.card-flip-back {
+  background: #fff;
+  color: #e07a3f;
+  transform: rotateY(180deg);
+  z-index: 2;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tarot-logo-bg {
+  display: none !important;
+}
+.tarot-card-title {
+  display: none !important;
+}
+.card-flip-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.card-flip-phrase {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #2ecc40;
+}
+
+.portfolio-flip-photos {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.portfolio-flip-photo-link {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(46,204,64,0.10);
+  transition: transform 0.2s;
+}
+.portfolio-flip-photo-link:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 16px rgba(46,204,64,0.18);
+}
+.portfolio-flip-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .portfolio-flip-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .portfolio-flip-photos {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-barbeiros-flip {
+    gap: 2.2rem;
+  }
+  .card-flip {
+    width: 100%;
+    min-width: 0;
+    height: 140px;
+  }
+  .portfolio-flip-photo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.barbers-insta-cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.barber-insta-card {
+  background: #181f18;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(46,204,64,0.10);
+  padding: 2.2rem 1.7rem 1.5rem 1.7rem;
+  min-width: 320px;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border: 2px solid #232f23;
+}
+
+.barber-insta-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  width: 100%;
+  margin-bottom: 0.7rem;
+}
+.barber-insta-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid #2ecc40;
+  box-shadow: 0 2px 8px rgba(46,204,64,0.10);
+  flex-shrink: 0;
+}
+.barber-insta-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.18);
+  transition: transform 0.3s;
+}
+.barber-insta-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.barber-insta-name {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.1rem;
+}
+.barber-insta-username {
+  font-size: 0.98rem;
+  color: #2ecc40;
+  font-weight: 500;
+}
+.barber-insta-bio {
+  font-size: 0.97rem;
+  color: #e0ffe0;
+  margin: 0.7rem 0 1.2rem 0;
+  text-align: left;
+  width: 100%;
+  min-height: 48px;
+  font-style: italic;
+}
+.barber-insta-feed {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.barber-insta-feed-photo-link {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(46,204,64,0.10);
+  transition: transform 0.2s;
+}
+.barber-insta-feed-photo-link:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 16px rgba(46,204,64,0.18);
+}
+.barber-insta-feed-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.barber-insta-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #ff6b99 0%, #ff6b35 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  text-align: center;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 0;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(255,107,153,0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.barber-insta-btn:hover {
+  background: linear-gradient(90deg, #ff6b35 0%, #ff6b99 100%);
+  box-shadow: 0 4px 24px 0 rgba(255,107,153,0.18);
+}
+
+@media (max-width: 900px) {
+  .barbers-insta-cards-row {
+    gap: 1.2rem;
+    justify-content: center;
+  }
+  .barber-insta-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+  }
+  .barber-insta-feed-photo {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (max-width: 600px) {
+  .barber-insta-card {
+    min-width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    padding: 1.2rem 0.2rem 1rem 0.2rem;
+  }
+  .barber-insta-feed {
+    gap: 0.3rem;
+  }
+  .barber-insta-feed-photo {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Dicas - Grid Moderno */
+.dicas-grid {
+  padding: 4rem 0 3rem 0;
+  background: #2b522b;
+}
+.dicas-grid h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px #1a2a1a, 0 1px 0 #3a6a3a, 0 0 8px #fff8, 0 0 2px #fff4;
+  filter: brightness(1.08);
+}
+.dicas-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.dica-card {
+  background: #f6f6f6;
+  border-radius: 1.3rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  max-width: 370px !important;
+  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 480px;
+  height: 100%;
+  
+}
+.dica-card:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 18px 72px 0 rgba(0,255,106,0.65);
+}
+.dica-card-title {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #e07a3f;
+  text-align: center;
+  margin-bottom: 1.1rem;
+  min-height: 48px;
+  line-height: 1.3;
+}
+.dica-card-main-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+.dica-card-main-img img {
+  border-radius: 0.9rem;
+  object-fit: cover;
+  width: 100%;
+  max-width: 340px;
+  height: 200px;
+  box-shadow: 0 2px 12px 0 rgba(224,122,63,0.08);
+}
+.dica-card-products {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+.dica-card-product-img {
+  border-radius: 0.7rem;
+  border: 2px solid #ffe3d0;
+  background: #fff7f2;
+  box-shadow: 0 1px 6px 0 rgba(224,122,63,0.07);
+  object-fit: cover;
+  width: 80px !important;
+  height: 80px !important;
+}
+.dica-card-text {
+  font-size: 1.05rem;
+  color: #444;
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+/* Funil: cards encaixados entre colunas */
+.dica-card:nth-child(4),
+.dica-card:nth-child(5) {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+/* Grid natural para 3x2 */
+.dicas-grid-cards.tarot-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.dica-card {
+  background: #f6f6f6;
+  border-radius: 1.3rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  max-width: 370px !important;
+  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 480px;
+  height: 100%;
+  
+}
+.dica-card:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 18px 72px 0 rgba(0,255,106,0.65);
+}
+.dica-card-title {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #e07a3f;
+  text-align: center;
+  margin-bottom: 1.1rem;
+  min-height: 48px;
+  line-height: 1.3;
+}
+.dica-card-main-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+.dica-card-main-img img {
+  border-radius: 0.9rem;
+  object-fit: cover;
+  width: 100%;
+  max-width: 340px;
+  height: 200px;
+  box-shadow: 0 2px 12px 0 rgba(224,122,63,0.08);
+}
+.dica-card-products {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+.dica-card-product-img {
+  border-radius: 0.7rem;
+  border: 2px solid #ffe3d0;
+  background: #fff7f2;
+  box-shadow: 0 1px 6px 0 rgba(224,122,63,0.07);
+  object-fit: cover;
+  width: 80px !important;
+  height: 80px !important;
+}
+.dica-card-text {
+  font-size: 1.05rem;
+  color: #444;
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+/* Tarot Card Flip */
+.tarot-card {
+  min-height: 480px;
+  height: 100%;
+}
+.tarot-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d;
+}
+.tarot-card.flipped .tarot-card-inner {
+  transform: rotateY(180deg);
+}
+.tarot-card-front, .tarot-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.tarot-card-front {
+  background: #E55808 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  z-index: 2;
+}
+.tarot-card-back {
+  background: #fff;
+  color: #e07a3f;
+  transform: rotateY(180deg);
+  z-index: 2;
+  border: 2px solid #f6f6f6 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tarot-logo-bg {
+  display: none !important;
+}
+.tarot-card-title {
+  display: none !important;
+}
+.tarot-card-back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+}
+.tarot-card-back-text {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #e07a3f;
+  text-align: center;
+  margin-bottom: 1.7rem;
+  line-height: 1.4;
+}
+.tarot-card-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffb36b 0%, #ff7a3f 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  box-shadow: 0 2px 12px 0 rgba(224,122,63,0.13);
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+.tarot-card-btn:hover {
+  background: linear-gradient(90deg, #ff7a3f 0%, #ffb36b 100%);
+  box-shadow: 0 4px 24px 0 rgba(224,122,63,0.18);
+}
+@media (max-width: 900px) {
+  .dicas-grid-cards.tarot-layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+  .dica-card, .tarot-card {
+    max-width: 370px;
+    min-height: 480px;
+  }
+}
+@media (max-width: 600px) {
+  .dicas-grid-cards.tarot-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1.3rem;
+    padding: 0 0.5rem;
+  }
+  .dica-card, .tarot-card {
+    padding: 1.2rem 0.5rem 1.1rem 0.5rem;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0;
+  }
+  .tarot-card-inner {
+    min-height: 0;
+  }
+  .dica-card-main-img img {
+    height: 140px;
+    max-width: 100%;
+  }
+  .dica-card-product-img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+
+.tarot-card,
+.tarot-card-front,
+.tarot-card.flipped {
+  cursor: pointer !important;
+}
+
+.dica-card-divider {
+  border: none;
+  border-top: 1px solid #e07a3f;
+  margin: 1.1rem 0 0.7rem 0;
+  width: 100%;
+}
+
+.contato-instagram-link span {
+  color: #ff4e7a !important;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.contato-instagram-link:hover span {
+  color: #ff1e5a !important;
+  text-decoration: underline;
+}
+.contato-instagram-subtitulo {
+  color: #fff;
+  font-size: 0.97rem;
+  font-weight: 400;
+  opacity: 0.85;
+  margin-left: 0;
+  margin-top: 0.12rem;
+}
+
+.horario-card {
+  background: linear-gradient(135deg, #232e23 60%, #0e2e13 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  padding: 1.5rem 2rem;
+  min-width: 340px;
+  max-width: 520px;
+  height: 270px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.horario-card-title {
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01em;
+}
+.horario-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  font-size: 1rem;
+}
+.horario-tabela td {
+  padding: 0.3rem 0.5rem 0.3rem 0;
+  border: none;
+  font-size: 1rem;
+}
+.horario-tabela tr:last-child td {
+  color: #ff4e7a;
+  font-weight: 600;
+}
+
+.contato h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 90px;
 } 
