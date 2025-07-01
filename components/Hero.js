@@ -6,15 +6,27 @@ const DiscountForm = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulação de envio de formulário
-    setTimeout(() => {
-      setMessage('Cupom enviado para seu e-mail!');
-      setFormData({ email: '', phone: '' });
-      setIsSubmitting(false);
-    }, 1000);
+    setMessage('');
+    try {
+      const res = await fetch('/api/send-discount', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tipo: 'corte', email: formData.email, telefone: formData.phone })
+      });
+      if (res.ok) {
+        setMessage('Seu desconto de 10% está garantido! Verifique seu email e apresente o cupom na sua primeira visita.');
+        setFormData({ email: '', phone: '' });
+      } else {
+        const data = await res.json();
+        setMessage(data.error || 'Erro ao enviar cupom.');
+      }
+    } catch (err) {
+      setMessage('Erro ao enviar cupom.');
+    }
+    setIsSubmitting(false);
   };
 
   const handleInputChange = (e) => {

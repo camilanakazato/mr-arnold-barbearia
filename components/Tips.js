@@ -39,7 +39,7 @@ export default function Tips() {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <section className="dicas dicas-grid">
+    <section id="dicas" className="dicas dicas-grid">
       <h2>Dicas de Cuidado</h2>
       <div className="dicas-grid-cards tarot-layout">
         {/* Linha 1 */}
@@ -68,13 +68,13 @@ export default function Tips() {
         ))}
         <div className={`dica-card tarot-card${flipped ? ' flipped' : ''}`} onClick={() => setFlipped(f => !f)}>
           <div className="tarot-card-inner">
-            <div className="tarot-card-front" style={{ background: '#e55806', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="tarot-card-front" style={{ background: '#e55808', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <Image src="/imgs/alt-trinks-icon.png" alt="Trinks" width={120} height={120} className="tarot-logo-img" />
             </div>
             <div className="tarot-card-back">
               <div className="tarot-card-back-content">
                 <div className="tarot-card-back-text">Sua autoestima merece esse cuidado</div>
-                <a href="https://www.trinks.com/mrarnoldbarbearia" target="_blank" rel="noopener noreferrer" className="tarot-card-btn">Agendar pelo site</a>
+                <a href="https://www.trinks.com/mr-arnold" target="_blank" rel="noopener noreferrer" className="tarot-card-btn">Agendar pelo site</a>
               </div>
             </div>
           </div>
