@@ -28,6 +28,7 @@ export default function Header({ onMenuToggle, isVisible }) {
             height={60}
             className="logo-barbearia-nav"
           />
+          {!isMobile && <a href="#inicio" className="logo-title">Mr Arnold</a>}
         </div>
         
         <ul className="nav-links">

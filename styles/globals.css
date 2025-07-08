@@ -1,7 +1,61 @@
 /* Reset e configurações globais */
 * {
   box-sizing: border-box;
-  outline: 1px solid red !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+*:focus,
+*:active,
+*:hover,
+*:visited {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+input,
+button,
+textarea,
+select,
+a,
+div,
+img {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus,
+a:focus,
+div:focus,
+img:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+input:active,
+button:active,
+textarea:active,
+select:active,
+a:active,
+div:active,
+img:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.produto-card,
+.produto-img-container,
+.produto-card img,
+.swiper-slide,
+.swiper-slide-active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 html {
@@ -63,6 +117,27 @@ header {
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+.logo-title {
+  color: #2ecc40;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo-title:hover {
+  color: #40e254;
+}
+
+@media (max-width: 700px) {
+  .logo-title {
+    display: none;
+  }
 }
 
 .logo-barbearia-nav {
@@ -656,9 +731,16 @@ section h2 {
 }
 
 .servico-agendamento-texto {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   color: #fff;
   margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .servico-agendamento-texto {
+    font-size: 0.9rem;
+  }
 }
 
 .servico-agendamento-links {
@@ -899,6 +981,7 @@ section h2 {
 .swiper-slide {
   margin-right: 8px !important;
   margin-left: 8px !important;
+  
 }
 
 .produtos-carousel {
@@ -3161,7 +3244,6 @@ a {
 .produto-card, .swiper-slide {
   border: none !important;
   box-shadow: none !important;
-  outline: none !important;
   background: transparent !important;
 }
 
@@ -3176,7 +3258,6 @@ a {
   .produto-card, .swiper-slide {
     border: none !important;
     box-shadow: none !important;
-    outline: none !important;
     background: transparent !important;
   }
   .swiper-slide-active .produto-card {
@@ -3943,8 +4024,8 @@ a {
 
 /* Debug visual para slides */
 .swiper-slide {
-  background: rgba(255,0,0,0.1) !important;
-  outline: 2px solid blue !important;
+  
+ 
 }
 
 /* Estilos específicos para mobile */
