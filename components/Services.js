@@ -29,7 +29,7 @@ export default function Services() {
           <div className="servico-card">
             <h4>Corte</h4>
             <p className="servico-descricao">Corte completo com tesoura e máquina ou somente tesoura, finalizado com estilo e atenção aos detalhes.</p>
-            <div className="servico-valor">R$50</div>
+            <div className="servico-valor">R$60</div>
           </div>
           <div className="servico-card">
             <h4>Corte apenas máquina</h4>
@@ -37,12 +37,12 @@ export default function Services() {
               Corte prático e uniforme somente com máquina, ideal para quem prefere simplicidade e agilidade.<br />
               <span style={{display: 'block', fontStyle: 'italic', textAlign: 'center', fontSize: '0.95rem', marginTop: '0.2rem'}}>*degradê não incluso.</span>
             </p>
-            <div className="servico-valor">R$35</div>
+            <div className="servico-valor">R$40</div>
           </div>
           <div className="servico-card">
             <h4>Pézinho</h4>
             <p className="servico-descricao">Retoque no acabamento do cabelo para manter o corte sempre alinhado</p>
-            <div className="servico-valor">R$20</div>
+            <div className="servico-valor">R$25</div>
           </div>
           <AgendamentoCard />
         </div>
@@ -54,12 +54,12 @@ export default function Services() {
           <div className="servico-card">
             <h4>Barba</h4>
             <p className="servico-descricao">Design de barba com definição e toalha quente para um acabamento impecável.</p>
-            <div className="servico-valor">R$45</div>
+            <div className="servico-valor">R$50</div>
           </div>
           <div className="servico-card">
             <h4>Barba apenas máquina</h4>
             <p className="servico-descricao">Aparação da barba com máquina, para um visual limpo e natural, sem navalha.</p>
-            <div className="servico-valor">R$20</div>
+            <div className="servico-valor">R$35</div>
           </div>
           <div className="servico-card">
             <h4>Barboterapia</h4>
@@ -76,7 +76,7 @@ export default function Services() {
           <div className="servico-card">
             <h4>Combo</h4>
             <p className="servico-descricao">Corte e barba com acabamento impecável, em um único atendimento pensado para valorizar seu estilo com praticidade e cuidado.</p>
-            <div className="servico-valor">R$80</div>
+            <div className="servico-valor">R$95</div>
           </div>
           <AgendamentoCard />
         </div>
@@ -88,7 +88,7 @@ export default function Services() {
           <div className="servico-card">
             <h4>Sobrancelha</h4>
             <p className="servico-descricao">Limpeza e alinhamento das sobrancelhas com técnica precisa e acabamento natural.</p>
-            <div className="servico-valor">R$20</div>
+            <div className="servico-valor">R$25</div>
           </div>
           <AgendamentoCard />
         </div>

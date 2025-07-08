@@ -6,12 +6,15 @@ export default function Sidebar({ isOpen, onClose, onNavigate }) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      document.body.style.width = '100vw'
     } else {
       document.body.style.overflow = 'unset'
+      document.body.style.width = ''
     }
 
     return () => {
       document.body.style.overflow = 'unset'
+      document.body.style.width = ''
     }
   }, [isOpen])
 
@@ -46,7 +49,7 @@ export default function Sidebar({ isOpen, onClose, onNavigate }) {
               position: 'fixed',
               top: 0,
               left: 0,
-              width: '100vw',
+              width: '100%',
               height: '100vh',
               background: 'rgba(16,21,16,0.55)',
               zIndex: 9998,
@@ -65,7 +68,9 @@ export default function Sidebar({ isOpen, onClose, onNavigate }) {
               position: 'fixed',
               top: 0,
               right: 0,
-              width: '300px',
+              width: 'min(300px, 100vw)',
+              maxWidth: '100vw',
+              overflowX: 'hidden',
               height: '100vh',
               background: '#101510',
               boxShadow: '-4px 0 24px rgba(46,204,64,0.18)',

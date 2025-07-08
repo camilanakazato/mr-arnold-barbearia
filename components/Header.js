@@ -1,6 +1,22 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export default function Header({ onMenuToggle, isVisible }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 700);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
   return (
     <header className={`site-header ${isVisible ? 'visible' : ''}`}>
       <nav className="navbar">
@@ -12,9 +28,6 @@ export default function Header({ onMenuToggle, isVisible }) {
             height={60}
             className="logo-barbearia-nav"
           />
-          <a href="#inicio" className="logo-link">
-            Mr Arnold
-          </a>
         </div>
         
         <ul className="nav-links">
@@ -24,12 +37,16 @@ export default function Header({ onMenuToggle, isVisible }) {
           <li>
             <a href="#servicos">Serviços</a>
           </li>
-          <li>
-            <a href="#barbeiros">Profissionais</a>
-          </li>
-          <li>
-            <a href="#produtos">Produtos</a>
-          </li>
+          {!isMobile && (
+            <>
+              <li>
+                <a href="#barbeiros">Profissionais</a>
+              </li>
+              <li>
+                <a href="#produtos">Produtos</a>
+              </li>
+            </>
+          )}
           <li>
             <a href="#contato">Contato</a>
           </li>

@@ -1,6 +1,7 @@
 /* Reset e configurações globais */
 * {
   box-sizing: border-box;
+  outline: 1px solid red !important;
 }
 
 html {
@@ -133,7 +134,7 @@ header {
 /* Video Hero */
 .video-hero-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   min-height: 340px;
   overflow: hidden;
@@ -276,10 +277,30 @@ header {
     font-size: 1.5rem;
   }
   .footer-nav {
-    gap: 1rem;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .footer-nav li {
+    flex: 0 0 auto !important;
+    min-width: unset !important;
+    width: auto !important;
+    text-align: center;
+    margin: 0 !important;
+    display: inline-block !important;
   }
   .footer-nav li a {
     font-size: 1rem;
+    display: block;
+    padding: 0.3rem 0.7rem;
+    width: 100%;
+    white-space: nowrap;
   }
 }
 
@@ -792,7 +813,9 @@ section h2 {
 
 /* Produtos */
 .produtos {
-  background: #0a1a0a;
+  position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
 .produtos-filtros {
@@ -820,16 +843,24 @@ section h2 {
   color: #101510;
 }
 
+.produtos-carousel-outer {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
 .produtos-carousel-container {
   position: relative;
   width: 100%;
-  padding: 0 56px;
-  box-sizing: border-box;
   overflow: visible;
+  z-index: 1;
 }
 
-.swiper {
-  width: 100%;
+.swiper,
+.swiper-wrapper {
+  overflow-x: visible !important;
+  overflow: visible !important;
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -1239,11 +1270,10 @@ section h2 {
 }
 
 .contato-redes {
-  margin-top: 0.5rem;
-  margin-bottom: 0.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.18rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .contato-redes a, .contato-instagram-link {
@@ -1261,13 +1291,9 @@ section h2 {
 .contato-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  color: #fff;
 }
 
 .contato-link.whatsapp {
@@ -1289,44 +1315,60 @@ section h2 {
   background: #1a2e1a;
   border: 2px solid #2ecc40;
   border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  max-width: 500px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 350px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .horario-funcionamento h3 {
   color: #2ecc40;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  margin-top: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .horarios {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
+  width: 80%;
 }
 
 .horario-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 1.5rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(46, 204, 64, 0.2);
+  margin: 0;
+  width: 100%;
 }
 
 .horario-item:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .dia {
   color: #e0ffe0;
   font-weight: 500;
+  flex: 1;
+  text-align: right;
 }
 
 .horario {
   color: #2ecc40;
   font-weight: bold;
+  flex: 1;
+  text-align: left;
 }
 
 /* Responsividade */
@@ -1407,6 +1449,17 @@ section h2 {
   .dica-slide {
     padding: 1rem;
   }
+  .horario-funcionamento {
+    padding: 1.5rem;
+  }
+  .contato-redes {
+    gap: 1.25rem;
+  }
+  
+  .contato-instagram-subtitulo {
+    padding-left: 40px;
+    line-height: 1.4;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1461,6 +1514,15 @@ section h2 {
   
   .contato-link {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    display: block !important;
   }
 }
 
@@ -1524,7 +1586,8 @@ a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 300px;
+  min-width: 0;
+  width: 100%;
 }
 .historia-card {
   width: 100%;
@@ -2074,8 +2137,8 @@ a {
 }
 @media (max-width: 600px) {
   .barber-insta-card {
-    min-width: 100vw;
-    max-width: 100vw;
+    min-width: 100%;
+    max-width: 100%;
     border-radius: 0;
     padding: 1.2rem 0.2rem 1rem 0.2rem;
   }
@@ -2423,49 +2486,62 @@ a {
   text-decoration: underline;
 }
 .contato-instagram-subtitulo {
-  color: #fff;
-  font-size: 0.97rem;
-  font-weight: 400;
-  opacity: 0.85;
-  margin-left: 0;
-  margin-top: 0.12rem;
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+  padding-left: 40px;
+  max-width: 280px;
 }
 
 .horario-card {
-  background: linear-gradient(135deg, #232e23 60%, #0e2e13 100%);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
-  padding: 1.5rem 2rem;
-  min-width: 340px;
-  max-width: 520px;
-  height: 270px;
-  margin-bottom: 0;
+  background: #1a2e1a;
+  border: 2px solid #2ecc40;
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  max-width: 350px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
+
 .horario-card-title {
-  color: #fff;
-  font-size: 1.18rem;
-  font-weight: 700;
-  margin-bottom: 1.1rem;
-  letter-spacing: 0.01em;
-}
-.horario-tabela {
+  color: #2ecc40;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  text-align: center;
   width: 100%;
-  border-collapse: collapse;
-  color: #fff;
-  font-size: 1rem;
 }
+
+.horario-tabela {
+  width: 90%;
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
 .horario-tabela td {
-  padding: 0.3rem 0.5rem 0.3rem 0;
-  border: none;
-  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(46, 204, 64, 0.2);
 }
+
 .horario-tabela tr:last-child td {
-  color: #ff4e7a;
-  font-weight: 600;
+  border-bottom: none;
+}
+
+.horario-tabela td:first-child {
+  color: #e0ffe0;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.horario-tabela td:last-child {
+  color: #2ecc40;
+  text-align: left;
+  padding-left: 1rem;
+  font-weight: bold;
 }
 
 .contato h2 {
@@ -2502,4 +2578,1749 @@ a {
 .desconto-jaboque-title {
   font-size: 1.40rem;
   font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .historia-card-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2rem !important;
+    margin-right: 0 !important;
+  }
+  .agendamento-card {
+    margin-bottom: 2rem !important;
+    padding: 1rem !important;
+  }
+  .historia-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 200px !important;
+  }
+  .historia-card-front, .historia-card-back {
+    padding: 1rem !important;
+    font-size: 0.92rem !important;
+  }
+  .historia-card-title {
+    font-size: 1.1rem !important;
+  }
+  .historia-card-logo {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .desconto-box, .agendamento-card, .contato-container, .servicos, .servicos-cards, .servico-card, .servico-agendamento, .produto-card, .barbeiro-card, .dica-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 1rem !important;
+  }
+  .servico-card, .produto-card, .barbeiro-card, .dica-card {
+    padding: 1rem !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    font-size: 0.95rem !important;
+  }
+  .produto-card img, .barbeiro-card img, .dica-card img {
+    height: 140px !important;
+    max-width: 100% !important;
+  }
+  .servico-icone, .produto-img-container, .barbeiro-card img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .hero-content h1, section h2, .servicos > h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .servicos-grupo h3 {
+    font-size: 1.1rem !important;
+    gap: 0.5rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+  .servico-valor {
+    font-size: 1.1rem !important;
+  }
+  .barbeiro-card h3, .produto-card h3, .dica-card-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .barbeiro-card p, .produto-descricao, .dica-legenda {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .contato-info, .contato-redes, .contato-instagram-bloco {
+    font-size: 0.95rem !important;
+    padding: 0.5rem !important;
+  }
 } 
+
+@media (max-width: 700px) {
+  .logo-barbearia-nav {
+    width: 48px !important;
+    height: 48px !important;
+    margin-right: 0.5rem !important;
+    align-self: center !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+  .logo-link {
+    display: none !important;
+  }
+  .navbar {
+    flex-wrap: nowrap;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.2rem;
+  }
+  .logo-nav-row {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links {
+    flex: 1 1 auto;
+    justify-content: space-between !important;
+    width: auto !important;
+    gap: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .nav-links a {
+    font-size: 0.98rem !important;
+    padding: 0.2rem 0.5rem !important;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  .nav-links li {
+    flex: 1 1 0;
+    width: 100%;
+    text-align: center;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .nav-links li:nth-child(3), /* Profissionais */
+  .nav-links li:nth-child(4)  /* Produtos */ {
+    display: none !important;
+  }
+  .menu-toggle {
+    position: static !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+    align-self: center;
+    order: 10;
+  }
+}
+
+@media (max-width: 600px) {
+  .close-sidebar {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1.35rem !important;
+    top: 0.4rem !important;
+    right: 0.4rem !important;
+  }
+  .menu-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 1.2rem !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    padding: 0 !important;
+  }
+  .sidebar-menu ul {
+    margin-top: 1.2rem !important;
+  }
+  .sidebar-menu ul li {
+    margin-bottom: 0.7rem !important;
+  }
+  .site-header,
+  .site-header.visible {
+    top: 0 !important;
+  }
+  .navbar {
+    padding-top: 1.7rem !important;
+    padding-bottom: 0.7rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-barbearia-nav {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-principal {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem !important;
+  }
+  .hero-content p {
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-principal {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .hero-content h1 {
+    font-size: 2.1rem !important;
+  }
+  .hero-content p {
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-principal {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem !important;
+  }
+  .hero-content p {
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-principal {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem !important;
+  }
+  .hero-content p {
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento-card {
+    padding: 1.2rem 0.7rem !important;
+    max-width: 95vw !important;
+  }
+  .agendamento-card h2 {
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+  }
+  .agendamento-botoes {
+    gap: 0.5rem !important;
+  }
+  .agendamento-btn {
+    padding: 0.3rem 0.7rem !important;
+    font-size: 0.92rem !important;
+    border-radius: 7px !important;
+  }
+  .agendamento-btn img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento-btn {
+    padding: 0.18rem 0.4rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 6px !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .agendamento-btn img {
+    width: 28px !important;
+    height: 28px !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+  .agendamento-botoes {
+    gap: 0.3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicos > h2 {
+    font-size: 2.1rem !important;
+    margin-bottom: 1.1rem !important;
+  }
+  .servicos-cards {
+    gap: 1.1rem !important;
+    margin-top: 0.2rem !important;
+  }
+  .servico-card h4 {
+    margin-bottom: 0.45rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicos-grupo h3 {
+    margin-bottom: 0.08rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .servico-agendamento-texto {
+    font-size: 1.0rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .agendamento-app-btn, .agendamento-trinks-btn {
+    padding: 0.28rem 0.85rem !important;
+    font-size: 0.95rem !important;
+    border-radius: 7px !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .agendamento-app-btn img, .agendamento-trinks-btn img {
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .barbeiro-card img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 92px !important;
+    height: 92px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-pagination,
+  .swiper-pagination-bullet,
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card .produto-img {
+    max-width: 100% !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .produto-descricao {
+    display: block !important;
+    margin: 0.6rem auto 0 auto !important;
+    text-align: center !important;
+    font-size: 0.82rem !important;
+    color: #fff !important;
+    max-width: 90%;
+  }
+  .produto-card:hover .produto-descricao {
+    display: block !important;
+    margin: 0.6rem auto 0 auto !important;
+    text-align: center !important;
+    font-size: 0.82rem !important;
+    color: #fff !important;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-descricao {
+    font-size: 0.82rem !important;
+    color: #fff !important;
+  }
+  .produto-card:hover .produto-descricao {
+    font-size: 0.82rem !important;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 1.1rem 0.5rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card h3 {
+    order: 1;
+    font-size: 1.08rem !important;
+    margin-bottom: 0.7rem !important;
+    margin-top: 0 !important;
+    width: 100%;
+    text-align: center !important;
+  }
+  .produto-img-container {
+    order: 2;
+    width: 120px !important;
+    height: 120px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 0.6rem auto !important;
+    position: relative !important;
+  }
+  .produto-card .produto-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    position: static !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+  .produto-descricao {
+    order: 3;
+    display: block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-size: 0.82rem !important;
+    color: #fff !important;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    min-height: 320px !important;
+    height: 320px !important;
+    max-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-img-container {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+  }
+  .produto-img-container.zoomed {
+    transform: scale(1.7);
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.25);
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    border: 1px solid #2ecc40 !important;
+    box-shadow: none !important;
+    border-radius: 16px !important;
+  }
+  .produto-img-container {
+    border: none !important;
+    background: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+  .produto-card .produto-img {
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+  .produto-img-container {
+    height: 120px !important;
+    border-radius: 12px !important;
+  }
+  .produto-card .produto-img {
+    border-radius: 12px !important;
+  }
+  .produto-card h3 {
+    font-size: 0.98rem;
+    margin: 0.7rem 0 0.4rem 0;
+    padding: 0 6px;
+  }
+  .produto-descricao {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.5rem 0.7rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card h3 {
+    margin-top: 2.2rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .produto-img-container {
+    margin-top: 1.2rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .produto-descricao {
+    margin-top: 1.2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    width: 90vw !important;
+    max-width: 320px !important;
+    min-height: 420px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    background: #1a2e1a;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Remover padding lateral */
+    box-sizing: border-box !important;
+  }
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card {
+    width: 90vw !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    background: transparent !important;
+    transition: background 0.3s;
+  }
+  .swiper-slide-active .produto-card {
+    background: #1a2e1a !important;
+  }
+}
+
+/* Remove borda, box-shadow e outline de todos os cards e slides */
+.produto-card, .swiper-slide {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+/* Aplica borda e fundo apenas no card ativo, com cantos arredondados */
+.swiper-slide-active .produto-card {
+  border: 2px solid #00ff00 !important; /* Exemplo de borda verde, ajuste se quiser */
+  border-radius: 20px !important;
+  background: rgba(0, 64, 0, 0.7) !important;
+}
+
+@media (max-width: 700px) {
+  .produto-card, .swiper-slide {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+  .swiper-slide-active .produto-card {
+    border: 2px solid #00ff00 !important;
+    border-radius: 20px !important;
+    background: rgba(0, 64, 0, 0.7) !important;
+  }
+}
+
+/* Remover borda e fundo do card ativo fora do mobile */
+.swiper-slide-active .produto-card {
+  border: none !important;
+  background: transparent !important;
+}
+
+@media (max-width: 700px) {
+  .swiper-slide-active .produto-card {
+    border: 2px solid #6fff7b !important; /* Verde mais leve */
+    border-radius: 20px !important;
+    background: rgba(111, 255, 123, 0.18) !important; /* Fundo verde claro translúcido */
+  }
+}
+
+@media (min-width: 701px) {
+  .swiper-slide {
+    transform: none !important;
+    margin: 0 12px !important;
+  }
+  .produto-card {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .produto-img-container {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-slide-active .produto-card {
+    border: 2px solid #2ecc40 !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .produto-card {
+    border: 2px solid #2ecc40 !important;
+    border-radius: 16px !important;
+    background: #101510 !important;
+    box-shadow: 0 2px 12px rgba(46,204,64,0.07);
+    overflow: hidden !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .swiper-slide:first-child .produto-card { /* border: none !important; */ }
+}
+
+/* Remover sobrescritas globais de background para .produto-card e .swiper-slide no desktop */
+.produto-card, .swiper-slide {
+  /* background: transparent !important; */
+}
+
+@media (min-width: 701px) {
+  .produto-card {
+    border: 2px solid #2ecc40 !important;
+    border-radius: 16px !important;
+    background: #101510 !important;
+    box-shadow: 0 2px 12px rgba(46,204,64,0.07);
+    overflow: hidden !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+@media (min-width: 701px) {
+  .swiper-slide .produto-card,
+  .swiper-slide:not(.swiper-slide-duplicate) .produto-card,
+  .swiper-slide-duplicate .produto-card,
+  .swiper-slide-prev .produto-card,
+  .swiper-slide-next .produto-card,
+  .swiper-slide-active .produto-card {
+    background: #101510 !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .centralizar-walory .swiper-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .centralizar-walory .swiper-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .centralizar-walory .produto-card {
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .swiper-slide {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produto-img-container {
+    height: 230px !important;
+    max-height: 230px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-img-container {
+    width: 160px !important;
+    height: 160px !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+  }
+  .produto-card .produto-img {
+    width: 160px !important;
+    height: 160px !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    min-height: 100% !important;
+    height: 100% !important;
+    overflow-y: visible !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .swiper-slide {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+  }
+  .produto-card {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produto-card {
+    width: 85vw !important;
+    max-width: 85vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-outer {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide,
+  .produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header, .navbar {
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    width: 100vw !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo-link {
+    display: inline-block !important;
+    font-size: 1rem !important;
+    padding: 0 0.3rem !important;
+    vertical-align: middle !important;
+    max-width: 80px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-outer,
+  .produtos-carousel-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .produto-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: 1px solid rgba(46, 204, 64, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .produto-img-container {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .produto-card .produto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+  .produto-img-container {
+    height: 120px !important;
+    border-radius: 12px !important;
+  }
+  .produto-card .produto-img {
+    border-radius: 12px !important;
+  }
+  .produto-card h3 {
+    font-size: 0.98rem;
+    margin: 0.7rem 0 0.4rem 0;
+    padding: 0 6px;
+  }
+  .produto-descricao {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.5rem 0.7rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card h3 {
+    margin-top: 2.2rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .produto-img-container {
+    margin-top: 1.2rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .produto-descricao {
+    margin-top: 1.2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    width: 90vw !important;
+    max-width: 320px !important;
+    min-height: 420px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    background: #1a2e1a;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Remover padding lateral */
+    box-sizing: border-box !important;
+  }
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card {
+    width: 90vw !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-card {
+    background: transparent !important;
+    transition: background 0.3s;
+  }
+  .swiper-slide-active .produto-card {
+    background: #1a2e1a !important;
+  }
+}
+
+/* Remove borda, box-shadow e outline de todos os cards e slides */
+.produto-card, .swiper-slide {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+/* Aplica borda e fundo apenas no card ativo, com cantos arredondados */
+.swiper-slide-active .produto-card {
+  border: 2px solid #00ff00 !important; /* Exemplo de borda verde, ajuste se quiser */
+  border-radius: 20px !important;
+  background: rgba(0, 64, 0, 0.7) !important;
+}
+
+@media (max-width: 700px) {
+  .produto-card, .swiper-slide {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+  .swiper-slide-active .produto-card {
+    border: 2px solid #00ff00 !important;
+    border-radius: 20px !important;
+    background: rgba(0, 64, 0, 0.7) !important;
+  }
+}
+
+/* Remover borda e fundo do card ativo fora do mobile */
+.swiper-slide-active .produto-card {
+  border: none !important;
+  background: transparent !important;
+}
+
+@media (max-width: 700px) {
+  .swiper-slide-active .produto-card {
+    border: 2px solid #6fff7b !important; /* Verde mais leve */
+    border-radius: 20px !important;
+    background: rgba(111, 255, 123, 0.18) !important; /* Fundo verde claro translúcido */
+  }
+}
+
+@media (min-width: 701px) {
+  .swiper-slide {
+    transform: none !important;
+    margin: 0 12px !important;
+  }
+  .produto-card {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .produto-img-container {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .swiper-slide-active .produto-card {
+    border: 2px solid #2ecc40 !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .produto-card {
+    border: 2px solid #2ecc40 !important;
+    border-radius: 16px !important;
+    background: #101510 !important;
+    box-shadow: 0 2px 12px rgba(46,204,64,0.07);
+    overflow: hidden !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .swiper-slide:first-child .produto-card { /* border: none !important; */ }
+}
+
+/* Remover sobrescritas globais de background para .produto-card e .swiper-slide no desktop */
+.produto-card, .swiper-slide {
+  /* background: transparent !important; */
+}
+
+@media (min-width: 701px) {
+  .produto-card {
+    border: 2px solid #2ecc40 !important;
+    border-radius: 16px !important;
+    background: #101510 !important;
+    box-shadow: 0 2px 12px rgba(46,204,64,0.07);
+    overflow: hidden !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+@media (min-width: 701px) {
+  .swiper-slide .produto-card,
+  .swiper-slide:not(.swiper-slide-duplicate) .produto-card,
+  .swiper-slide-duplicate .produto-card,
+  .swiper-slide-prev .produto-card,
+  .swiper-slide-next .produto-card,
+  .swiper-slide-active .produto-card {
+    background: #101510 !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .centralizar-walory .swiper-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .centralizar-walory .swiper-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .centralizar-walory .produto-card {
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .swiper-slide {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produto-img-container {
+    height: 230px !important;
+    max-height: 230px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-img-container {
+    width: 160px !important;
+    height: 160px !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+  }
+  .produto-card .produto-img {
+    width: 160px !important;
+    height: 160px !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    min-height: 100% !important;
+    height: 100% !important;
+    overflow-y: visible !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .swiper-slide {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+  }
+  .produto-card {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produto-card {
+    width: 85vw !important;
+    max-width: 85vw !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-outer {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide,
+  .produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header, .navbar {
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    width: 100vw !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo-link {
+    display: inline-block !important;
+    font-size: 1rem !important;
+    padding: 0 0.3rem !important;
+    vertical-align: middle !important;
+    max-width: 80px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-carousel-outer,
+  .produtos-carousel-container,
+  .swiper,
+  .swiper-wrapper {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  .produto-card {
+    width: 90vw !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-carousel-container {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .produto-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+  /* Remover width 100% dos slides para efeito peek funcionar */
+  /* .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  } */
+}
+
+/* Debug visual para slides */
+.swiper-slide {
+  background: rgba(255,0,0,0.1) !important;
+  outline: 2px solid blue !important;
+}
+
+/* Estilos específicos para mobile */
+.produtos-carousel-outer.mobile,
+.produtos-carousel-container.mobile {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.swiper.mobile {
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.swiper.mobile .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.swiper.mobile .swiper-slide {
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper.mobile .swiper-slide-active {
+  z-index: 2 !important;
+}
+
+.swiper.mobile .produto-card {
+  width: 85vw !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(26, 46, 26, 0.95) !important;
+  border: 1px solid rgba(46, 204, 64, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transform: none !important;
+}
+
+.swiper.mobile .produto-img-container {
+  width: 200px !important;
+  height: 200px !important;
+  position: relative !important;
+  margin: 0 auto !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.swiper.mobile .produto-card h3 {
+  font-size: 1.1rem !important;
+  margin: 1rem 0 !important;
+  text-align: center !important;
+  padding: 0 0.5rem !important;
+}
+
+.swiper.mobile .produto-descricao {
+  font-size: 0.9rem !important;
+  text-align: center !important;
+  padding: 0 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Ajustes de navegação para mobile */
+.swiper.mobile .swiper-button-next,
+.swiper.mobile .swiper-button-prev {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(46, 204, 64, 0.8) !important;
+  border-radius: 50% !important;
+  color: white !important;
+}
+
+.swiper.mobile .swiper-button-next:after,
+.swiper.mobile .swiper-button-prev:after {
+  font-size: 1.2rem !important;
+}
+
+.swiper.mobile .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper.mobile .swiper-pagination-bullet {
+  background: rgba(46, 204, 64, 0.5) !important;
+}
+
+.swiper.mobile .swiper-pagination-bullet-active {
+  background: #2ecc40 !important;
+}
+
+/* Estilos base do carrossel */
+.produtos {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.produtos-carousel-outer {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.produtos-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* Estilos específicos para mobile */
+.produtos-carousel-outer.mobile,
+.produtos-carousel-container.mobile {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.produtos-swiper.mobile {
+  overflow: visible !important;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  scroll-snap-type: x mandatory !important;
+}
+
+.produtos-swiper.mobile .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.produtos-swiper.mobile .swiper-slide {
+  position: relative !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  transition: all 0.3s ease !important;
+  scroll-snap-align: start !important;
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  z-index: 1 !important;
+}
+
+.produtos-swiper.mobile .swiper-slide-active {
+  z-index: 2 !important;
+}
+
+.produtos-swiper.mobile .produto-card {
+  position: relative !important;
+  width: 85vw !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(26, 46, 26, 0.95) !important;
+  border: 1px solid rgba(46, 204, 64, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transform: none !important;
+  z-index: 1 !important;
+}
+
+.produtos-swiper.mobile .produto-img-container {
+  position: relative !important;
+  width: 200px !important;
+  height: 200px !important;
+  margin: 0 auto !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+.produtos-swiper.mobile .produto-card h3 {
+  position: relative !important;
+  font-size: 1.1rem !important;
+  margin: 1rem 0 !important;
+  text-align: center !important;
+  padding: 0 0.5rem !important;
+  z-index: 1 !important;
+}
+
+.produtos-swiper.mobile .produto-descricao {
+  position: relative !important;
+  font-size: 0.9rem !important;
+  text-align: center !important;
+  padding: 0 0.5rem !important;
+  margin-bottom: 1rem !important;
+  z-index: 1 !important;
+}
+
+/* Ajustes de navegação para mobile */
+.produtos-swiper.mobile .swiper-button-next,
+.produtos-swiper.mobile .swiper-button-prev {
+  position: absolute !important;
+  top: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(46, 204, 64, 0.8) !important;
+  border-radius: 50% !important;
+  color: white !important;
+  z-index: 10 !important;
+  transform: translateY(-50%) !important;
+}
+
+.produtos-swiper.mobile .swiper-button-next {
+  right: 10px !important;
+}
+
+.produtos-swiper.mobile .swiper-button-prev {
+  left: 10px !important;
+}
+
+.produtos-swiper.mobile .swiper-button-next:after,
+.produtos-swiper.mobile .swiper-button-prev:after {
+  font-size: 1.2rem !important;
+}
+
+.produtos-swiper.mobile .swiper-pagination {
+  position: relative !important;
+  bottom: 0 !important;
+  z-index: 10 !important;
+}
+
+.produtos-swiper.mobile .swiper-pagination-bullet {
+  background: rgba(46, 204, 64, 0.5) !important;
+}
+
+.produtos-swiper.mobile .swiper-pagination-bullet-active {
+  background: #2ecc40 !important;
+}
+
+/* Remove qualquer overflow hidden que possa estar afetando */
+.swiper,
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide {
+  overflow: visible !important;
+}
+
+/* Garante que não há transformações indesejadas */
+.swiper-slide-transform-reset {
+  transform: none !important;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    height: 60px !important;
+    padding: 0 !important;
+  }
+
+  .navbar {
+    padding: 0.5rem 0.5rem !important;
+    gap: 0.5rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .logo-nav-row {
+    gap: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .logo-barbearia-nav {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .nav-links {
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center !important;
+    margin-left: 0.5rem !important;
+    flex-grow: 1 !important;
+    justify-content: flex-start !important;
+  }
+
+  .nav-links li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem !important;
+    padding: 0.2rem 0.4rem !important;
+    white-space: nowrap !important;
+  }
+
+  .menu-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1.5rem !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+.contato-redes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.contato-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.contato-instagram-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contato-instagram-subtitulo {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+  padding-left: 40px;
+  max-width: 280px;
+}
+
+@media (max-width: 768px) {
+  .contato-redes {
+    gap: 2rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .contato-link {
+    width: 100%;
+  }
+  
+  .contato-instagram-bloco {
+    width: 100%;
+  }
+  
+  .contato-instagram-subtitulo {
+    padding-left: 40px;
+    line-height: 1.4;
+  }
+}

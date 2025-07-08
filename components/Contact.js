@@ -36,17 +36,18 @@ export default function Contact() {
           <p><strong>Email:</strong> mrarnoldbarbearia@gmail.com</p>
           
           <div className="contato-redes">
-            <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer">
-              <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} style={{verticalAlign: 'middle', marginRight: '8px'}} />
-              <span style={{verticalAlign: 'middle'}}>Fale conosco por aqui!</span>
+            <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer" className="contato-link">
+              <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} />
+              <span>Fale conosco por aqui!</span>
             </a>
             <div className="contato-instagram-bloco">
-              <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-instagram-link">
-                <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} style={{verticalAlign: 'middle', marginRight: '8px'}} />
-                <span style={{verticalAlign: 'middle'}}><strong>Segue a gente no Instagram!</strong></span>
+              <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-link">
+                <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} />
+                <span><strong>Segue a gente no Instagram!</strong></span>
               </a>
-              <br />
-              <span className="contato-instagram-subtitulo">Tem corte novo, dica de cuidado e promoção<br/>que só quem acompanha aproveita.</span>
+              <p className="contato-instagram-subtitulo">
+                Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.
+              </p>
             </div>
           </div>
         </div>

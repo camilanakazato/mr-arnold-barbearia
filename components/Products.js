@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules'
+import 'swiper/css/effect-coverflow'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -58,6 +59,34 @@ const JaboqueDiscountForm = () => {
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('todos')
+  const [isDesktop, setIsDesktop] = useState(false);
+  const swiperRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 701);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 480);
+    if (typeof window !== 'undefined') {
+      checkDesktop();
+      checkMobile();
+      window.addEventListener('resize', checkDesktop);
+      window.addEventListener('resize', checkMobile);
+      // Forçar atualização do Swiper após resize
+      const handleResize = () => {
+        if (swiperRef.current && swiperRef.current.update) {
+          swiperRef.current.update();
+        }
+      };
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', checkDesktop);
+        window.removeEventListener('resize', checkMobile);
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
 
   const products = [
     { name: 'Ativador de Cachos | Cavalera', image: '/imgs/ativadordeCachos-cavalera.jpg', category: 'cavalera', description: 'Realce os cachos com definição, maciez e controle de frizz. Ideal para quem quer estilo com movimento natural.' },
@@ -105,8 +134,51 @@ export default function Products() {
     filteredProducts = filteredProducts.filter(product => product.name !== 'Pente para Barba');
   }
 
+  // Debug: ver quantos produtos estão sendo passados para o Swiper
+  console.log('filteredProducts:', filteredProducts);
+
   // Centralizar slide único para Walory
   const isWalorySingle = activeCategory === 'walory' && filteredProducts.length === 1;
+
+  // Função para trocar filtro e voltar ao primeiro slide
+  const handleCategoryChange = (categoryId) => {
+    setActiveCategory(categoryId);
+    // Voltar para o primeiro slide ao trocar filtro (tanto desktop quanto mobile)
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(0, 300); // 300ms de duração da animação
+    }
+  };
+
+  // Mobile: efeito peek/preview
+  const swiperParams = (isClient && isMobile)
+    ? {
+        slidesPerView: 1,
+        centeredSlides: false,
+        spaceBetween: 20,
+        loop: false,
+        pagination: { clickable: true },
+        navigation: true,
+        effect: 'slide',
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        observer: true,
+        observeParents: true,
+        nested: false,
+        allowTouchMove: true,
+        preventClicks: false,
+        preventClicksPropagation: false,
+        slideToClickedSlide: true,
+      }
+    : {
+        breakpoints: {
+          1200: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false, effect: 'slide' },
+          900: { slidesPerView: 3, spaceBetween: 18, centeredSlides: false, effect: 'slide' },
+          701: { slidesPerView: 2, spaceBetween: 12, centeredSlides: false, effect: 'slide' },
+          0: { slidesPerView: 1, centeredSlides: true, spaceBetween: 0, effect: 'slide' },
+        },
+        navigation: true,
+        pagination: { clickable: true },
+      };
 
   return (
     <section id="produtos" className="produtos">
@@ -117,41 +189,59 @@ export default function Products() {
           <button
             key={category.id}
             className={`filtro-btn ${activeCategory === category.id ? 'ativo' : ''}`}
-            onClick={() => setActiveCategory(category.id)}
+            onClick={() => handleCategoryChange(category.id)}
           >
             {category.name}
           </button>
         ))}
       </div>
 
-      <div className="produtos-carousel-container">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={24}
-          slidesPerView={4}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            1200: { slidesPerView: 4 },
-            900: { slidesPerView: 3 },
-            600: { slidesPerView: 2 },
-            0: { slidesPerView: 1 }
-          }}
-          style={{ paddingBottom: '3.5rem' }}
-          centeredSlides={isWalorySingle}
-        >
-          {filteredProducts.map((product) => (
-            <SwiperSlide key={product.image}>
-              <div className="produto-card">
-                <h3>{product.name.replace('Pente para Barba | Jaboque', 'Pente para Barba').replace(/^\-\s*/, '')}</h3>
-                <div className="produto-img-container">
-                  <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="produto-img" />
+      <div className={`produtos-carousel-outer ${isMobile ? 'mobile' : ''}`}>
+        <div className={`produtos-carousel-container ${isMobile ? 'mobile' : ''}`}>
+          <Swiper
+            className={`produtos-swiper ${isWalorySingle && isDesktop ? 'centralizar-walory' : ''} ${isMobile ? 'mobile' : ''}`}
+            modules={[Navigation, Pagination, EffectCoverflow]}
+            onSwiper={(swiper) => { swiperRef.current = swiper; }}
+            {...swiperParams}
+            style={{ 
+              paddingBottom: '3.5rem',
+              overflow: isMobile ? 'visible' : 'hidden',
+              position: 'relative',
+              width: '100%',
+            }}
+          >
+            {filteredProducts.map((product) => (
+              <SwiperSlide
+                key={product.name + product.image}
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  width: isMobile ? '100%' : 'auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <div
+                  className="produto-card"
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    width: isMobile ? '85vw' : 'auto',
+                    maxWidth: '320px',
+                    margin: '0 auto',
+                  }}
+                >
+                  <div className="produto-img-container">
+                    <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="produto-img" />
+                  </div>
+                  <h3>{product.name}</h3>
+                  <p className="produto-descricao">{product.description}</p>
                 </div>
-                <p className="produto-descricao">{product.description}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
       
       <JaboqueDiscountForm />
