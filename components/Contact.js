@@ -36,18 +36,28 @@ export default function Contact() {
           <p><strong>Email:</strong> mrarnoldbarbearia@gmail.com</p>
           
           <div className="contato-redes">
-            <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer" className="contato-link">
-              <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} />
-              <span>Fale conosco por aqui!</span>
-            </a>
-            <div className="contato-instagram-bloco">
-              <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-link">
-                <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} />
-                <span><strong>Segue a gente no Instagram!</strong></span>
+            <div className="contato-whatsapp-wrapper">
+              <a href="https://wa.me/5567998942928" target="_blank" rel="noopener noreferrer" className="contato-link whatsapp">
+                <div className="contato-icon">
+                  <Image src="/imgs/whatsapp-icon.png" alt="WhatsApp" width={32} height={32} />
+                </div>
+                <span>Fale conosco por aqui!</span>
               </a>
-              <p className="contato-instagram-subtitulo">
-                Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.
-              </p>
+            </div>
+            <div className="contato-instagram-wrapper">
+              <div className="contato-instagram-bloco">
+                <a href="https://www.instagram.com/mrarnoldbarbearia/" target="_blank" rel="noopener noreferrer" className="contato-link instagram">
+                  <div className="contato-icon">
+                    <Image src="/imgs/instagram-contato-icon.png" alt="Instagram" width={32} height={32} />
+                  </div>
+                  <span><strong>Segue a gente no Instagram!</strong></span>
+                </a>
+                <div className="contato-instagram-subtitulo-wrapper">
+                  <p className="contato-instagram-subtitulo">
+                    Tem corte novo, dica de cuidado e promoção que só quem acompanha aproveita.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,9 +67,18 @@ export default function Contact() {
             <h3 className="horario-card-title">Horário de Funcionamento</h3>
             <table className="horario-tabela">
               <tbody>
-                <tr><td>Segunda à Sexta:</td><td>9h - 19h</td></tr>
-                <tr><td>Sábados:</td><td>9h - 17h</td></tr>
-                <tr><td>Domingos:</td><td>Fechado</td></tr>
+                <tr>
+                  <td style={{ whiteSpace: 'nowrap' }}>Segunda à Sexta:</td>
+                  <td>9h - 19h</td>
+                </tr>
+                <tr>
+                  <td>Sábados:</td>
+                  <td>9h - 17h</td>
+                </tr>
+                <tr>
+                  <td>Domingos:</td>
+                  <td>Fechado</td>
+                </tr>
               </tbody>
             </table>
           </div>

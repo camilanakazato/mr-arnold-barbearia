@@ -104,11 +104,6 @@ Thumbs.db
 *.backup
 backup/
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
 # Archive files
 *.zip
 *.rar

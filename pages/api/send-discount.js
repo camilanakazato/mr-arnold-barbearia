@@ -1,7 +1,5 @@
 import nodemailer from 'nodemailer';
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
-import path from 'path';
+import { supabase } from '../../lib/supabase';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -12,10 +10,6 @@ export default async function handler(req, res) {
   if (!email || !telefone || (tipo === 'jaboque' && !nome)) {
     return res.status(400).json({ error: 'Campos obrigatórios faltando.' });
   }
-
-  // Caminho absoluto do banco
-  const dbPath = path.join(process.cwd(), 'backup', 'mrarnold.db');
-  const db = await open({ filename: dbPath, driver: sqlite3.Database });
 
   // Configuração do transporte de email
   const transporter = nodemailer.createTransport({
@@ -28,7 +22,12 @@ export default async function handler(req, res) {
 
   try {
     if (tipo === 'jaboque') {
-      await db.run('INSERT INTO jaboque_descontos (nome, email, telefone) VALUES (?, ?, ?)', [nome, email, telefone]);
+      const { error } = await supabase
+        .from('jaboque_descontos')
+        .insert([{ nome, email, telefone }]);
+      
+      if (error) throw error;
+
       await transporter.sendMail({
         from: 'noreplymrarnold@gmail.com',
         to: email,
@@ -37,13 +36,18 @@ export default async function handler(req, res) {
         attachments: [
           {
             filename: 'cupomJaboque-desconto.jpg',
-            path: path.join(process.cwd(), 'public', 'imgs', 'cupomJaboque-desconto.jpg'),
+            path: './public/imgs/cupomJaboque-desconto.jpg',
             cid: 'cupomjaboque@mrarnold',
           },
         ],
       });
     } else {
-      await db.run('INSERT INTO desconto_emails (email, telefone) VALUES (?, ?)', [email, telefone]);
+      const { error } = await supabase
+        .from('desconto_emails')
+        .insert([{ email, telefone }]);
+      
+      if (error) throw error;
+
       await transporter.sendMail({
         from: 'noreplymrarnold@gmail.com',
         to: email,
@@ -52,7 +56,7 @@ export default async function handler(req, res) {
         attachments: [
           {
             filename: 'cupomCorte-desconto.jpg',
-            path: path.join(process.cwd(), 'public', 'imgs', 'cupomCorte-desconto.jpg'),
+            path: './public/imgs/cupomCorte-desconto.jpg',
             cid: 'cupomcorte@mrarnold',
           },
         ],
@@ -62,7 +66,5 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('Erro ao salvar desconto ou enviar email:', err);
     res.status(500).json({ error: 'Erro ao salvar dados ou enviar email: ' + err.message });
-  } finally {
-    await db.close();
   }
 } 
