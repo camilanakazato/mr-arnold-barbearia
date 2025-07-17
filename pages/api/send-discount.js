@@ -2,22 +2,35 @@ import nodemailer from 'nodemailer';
 import { supabase } from '../../lib/supabase';
 
 export default async function handler(req, res) {
+  console.log('=== INÍCIO DA REQUISIÇÃO ===');
+  console.log('Método:', req.method);
+  console.log('Body:', req.body);
+  
   if (req.method !== 'POST') {
+    console.log('Erro: Método não permitido');
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
   const { tipo, nome, email, telefone } = req.body;
+  console.log('Dados recebidos:', { tipo, nome, email, telefone });
+  
   if (!email || !telefone || (tipo === 'jaboque' && !nome)) {
+    console.log('Erro: Campos obrigatórios faltando');
     return res.status(400).json({ error: 'Campos obrigatórios faltando.' });
   }
 
   // Verificar se as variáveis de ambiente do Supabase estão configuradas
+  console.log('Verificando variáveis de ambiente...');
+  console.log('NEXT_PUBLIC_SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? '✅ Configurada' : '❌ Não configurada');
+  console.log('NEXT_PUBLIC_SUPABASE_ANON_KEY:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✅ Configurada' : '❌ Não configurada');
+  
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     console.error('Erro: Variáveis de ambiente do Supabase não configuradas');
     return res.status(500).json({ error: 'Configuração do banco de dados não encontrada' });
   }
 
   // Configuração do transporte de email
+  console.log('Configurando transporte de email...');
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -83,15 +96,14 @@ export default async function handler(req, res) {
       console.log('Email enviado com sucesso:', mailResult.messageId);
     }
     
+    console.log('=== PROCESSO CONCLUÍDO COM SUCESSO ===');
     res.status(200).json({ success: true });
   } catch (err) {
-    console.error('Erro detalhado ao processar cupom:', {
-      error: err.message,
-      stack: err.stack,
-      tipo,
-      email,
-      telefone
-    });
+    console.error('=== ERRO DETALHADO ===');
+    console.error('Erro:', err.message);
+    console.error('Stack:', err.stack);
+    console.error('Dados da requisição:', { tipo, email, telefone });
+    console.error('=== FIM DO ERRO ===');
     
     // Determinar o tipo de erro para resposta mais específica
     let errorMessage = 'Erro interno do servidor';
