@@ -1,3 +1,4 @@
+// Forçando novo deploy - cupons funcionando
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
