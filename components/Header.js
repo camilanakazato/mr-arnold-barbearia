@@ -51,17 +51,17 @@ export default function Header({ onMenuToggle, isVisible }) {
           <li>
             <a href="#contato">Contato</a>
           </li>
-          <li>
-            <button
-              id="menu-toggle"
-              onClick={onMenuToggle}
-              className="menu-toggle"
-              aria-label="Abrir menu lateral"
-            >
-              +
-            </button>
-          </li>
         </ul>
+        
+        {/* Botão da sidebar sempre visível */}
+        <button
+          id="menu-toggle"
+          onClick={onMenuToggle}
+          className="menu-toggle"
+          aria-label="Abrir menu lateral"
+        >
+          +
+        </button>
       </nav>
     </header>
   )
