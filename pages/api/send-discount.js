@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { supabase } from '../../lib/supabase';
+import path from 'path';
 
 export default async function handler(req, res) {
   console.log('=== INÍCIO DA REQUISIÇÃO ===');
@@ -62,7 +63,7 @@ export default async function handler(req, res) {
         attachments: [
           {
             filename: 'cupomJaboque-desconto.jpg',
-            path: './public/imgs/cupomJaboque-desconto.jpg',
+            path: path.join(process.cwd(), 'public', 'imgs', 'cupomJaboque-desconto.jpg'),
             cid: 'cupomjaboque@mrarnold',
           },
         ],
@@ -88,7 +89,7 @@ export default async function handler(req, res) {
         attachments: [
           {
             filename: 'cupomCorte-desconto.jpg',
-            path: './public/imgs/cupomCorte-desconto.jpg',
+            path: path.join(process.cwd(), 'public', 'imgs', 'cupomCorte-desconto.jpg'),
             cid: 'cupomcorte@mrarnold',
           },
         ],
@@ -113,6 +114,8 @@ export default async function handler(req, res) {
       errorMessage = 'Erro de autenticação do email';
     } else if (err.message.includes('ENOTFOUND')) {
       errorMessage = 'Erro de conexão com o servidor de email';
+    } else if (err.message.includes('ENOENT')) {
+      errorMessage = 'Arquivo do cupom não encontrado';
     }
     
     res.status(500).json({ error: errorMessage });
