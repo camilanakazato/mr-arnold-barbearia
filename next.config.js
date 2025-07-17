@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // output: 'export', // Removido para permitir API Routes
+  trailingSlash: true, // Evita erro 404 em subpáginas
   images: {
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true, // Garante que as imagens funcionem no export estático
   },
   compress: true,
   poweredByHeader: false,
