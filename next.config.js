@@ -1,3 +1,5 @@
+// Forçando novo commit e push para redeploy na Vercel
+// Forçando novo deploy na Vercel - ajuste de ambiente
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export', // Removido para permitir API Routes
