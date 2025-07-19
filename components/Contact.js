@@ -62,7 +62,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="historia-card-container" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', gap: '6rem', marginRight: '150px' }}>
+        <div className="contato-cards-section">
           <div className="horario-card">
             <h3 className="horario-card-title">Horário de Funcionamento</h3>
             <table className="horario-tabela">
@@ -82,7 +82,7 @@ export default function Contact() {
               </tbody>
             </table>
           </div>
-          <div>
+          <div className="historia-card-wrapper">
             <HistoryCard />
           </div>
         </div>
