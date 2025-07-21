@@ -34,7 +34,10 @@ export default function VideoHero() {
           className="footer-logo"
           priority
         />
-        <div className="footer-title">Mr Arnold Barbearia</div>
+        <div className="footer-title">
+          <span className="mr-text">Mr</span>
+          <span className="arnold-text">Arnold</span>
+        </div>
         <ul className="footer-nav">
           <li><a href="#inicio">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
