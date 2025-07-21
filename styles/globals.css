@@ -1373,14 +1373,14 @@ section h2 {
 }
 
 .contato-link {
-  display: grid;
-  grid-template-columns: 32px 1fr;
+  display: flex;
+  align-items: center;
   gap: 8px;
   text-decoration: none;
   color: #fff;
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: fit-content;
 }
 
 .contato-link.whatsapp {
@@ -1672,9 +1672,13 @@ a:focus {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: 6rem;
-  margin-right: 150px;
+  justify-content: center;
+  gap: 1rem;
+  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20rem;
+  margin-right: 3rem;
 }
 .historia-card-container {
   flex: 1;
@@ -2691,6 +2695,12 @@ a {
     align-items: stretch !important;
     gap: 2rem !important;
     margin-right: 0 !important;
+    margin-top: 2rem !important;
+  }
+  
+  .horario-card, .historia-card {
+    transform: scale(0.9) !important;
+    transform-origin: center !important;
   }
   
   .historia-card-container {
@@ -4573,6 +4583,12 @@ a {
     align-items: stretch !important;
     gap: 1.5rem !important;
     margin-right: 0 !important;
+    margin-top: 2rem !important;
+  }
+  
+  .horario-card, .historia-card {
+    transform: scale(0.85) !important;
+    transform-origin: center !important;
   }
   
   .contato-redes {
@@ -4624,6 +4640,15 @@ a {
   .navbar {
     padding: 0.5rem 1rem !important;
     gap: 0.3rem !important;
+  }
+  
+  .contato-cards-section {
+    margin-top: 2rem !important;
+  }
+  
+  .horario-card, .historia-card {
+    transform: scale(0.8) !important;
+    transform-origin: center !important;
   }
 
   .logo-nav-row {
