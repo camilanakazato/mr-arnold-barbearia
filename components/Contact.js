@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const HistoryCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -26,6 +26,25 @@ const HistoryCard = () => {
 };
 
 export default function Contact() {
+  const [isIpadProVertical, setIsIpadProVertical] = useState(false);
+
+  useEffect(() => {
+    const checkIpadProVertical = () => {
+      const isIpadPro = window.innerWidth === 1024 && window.innerHeight === 1366;
+      setIsIpadProVertical(isIpadPro);
+    };
+
+    // Verificar na montagem do componente
+    checkIpadProVertical();
+
+    // Verificar quando a janela for redimensionada
+    window.addEventListener('resize', checkIpadProVertical);
+
+    return () => {
+      window.removeEventListener('resize', checkIpadProVertical);
+    };
+  }, []);
+
   return (
     <section id="contato" className="contato">
       <h2>Localização & Atendimento</h2>
@@ -62,7 +81,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="contato-cards-section">
+        <div className={`contato-cards-section ${isIpadProVertical ? 'ipad-pro-vertical' : ''}`}>
           <div className="horario-card">
             <h3 className="horario-card-title">Horário de Funcionamento</h3>
             <table className="horario-tabela">

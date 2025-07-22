@@ -1696,6 +1696,32 @@ a:focus {
   margin-top: -20rem;
   margin-right: 3rem;
 }
+
+/* OVERRIDE ESPECÍFICO PARA IPAD PRO VERTICAL */
+@media (width: 1024px) and (height: 1366px) {
+  .contato-cards-section {
+    margin-top: 30rem !important;
+  }
+}
+
+/* REGRA INLINE STYLE OVERRIDE */
+@media (width: 1024px) and (height: 1366px) {
+  .contato-cards-section[style*="margin-top"] {
+    margin-top: 30rem !important;
+  }
+}
+
+/* CLASSE ESPECÍFICA PARA IPAD PRO VERTICAL - VIA JAVASCRIPT */
+.contato-cards-section.ipad-pro-vertical {
+  margin-top: 2rem !important;
+  padding-top: 1rem !important;
+  position: relative !important;
+  top: 1rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 .historia-card-container {
   flex: 1;
   display: flex;
@@ -6175,17 +6201,29 @@ a {
 
 /* iPad Pro e dispositivos similares - 1024x1366 vertical */
 @media (width: 1024px) and (height: 1366px) {
+  .contato-container {
+    padding-top: 50rem !important;
+    margin-top: 50rem !important;
+  }
+  
   .contato-cards-section {
     flex-direction: row !important;
     align-items: flex-start !important;
     justify-content: center !important;
     gap: 1.5rem !important;
-    margin-top: 0 !important;
+    margin-top: 50rem !important;
+    padding-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
+    transform: translateY(50rem) !important;
   }
   
   .horario-card, .historia-card {
     transform: scale(0.95) !important;
     transform-origin: center !important;
+    margin-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
   }
   
   /* REMOVER BOLINHAS E SETAS DE NAVEGAÇÃO - IPAD PRO VERTICAL */
@@ -6198,6 +6236,62 @@ a {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+}
+
+/* REGRA ALTERNATIVA PARA IPAD PRO - MAIS ESPECÍFICA */
+@media screen and (width: 1024px) and (height: 1366px) {
+  .contato-container {
+    padding-top: 50rem !important;
+    margin-top: 50rem !important;
+  }
+  
+  .contato-cards-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    margin-top: 50rem !important;
+    padding-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
+    transform: translateY(50rem) !important;
+  }
+  
+  .horario-card, .historia-card {
+    transform: scale(0.95) !important;
+    transform-origin: center !important;
+    margin-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
+  }
+}
+
+/* REGRA ULTRA ESPECÍFICA PARA IPAD PRO */
+@media only screen and (width: 1024px) and (height: 1366px) {
+  .contato-container {
+    padding-top: 50rem !important;
+    margin-top: 50rem !important;
+  }
+  
+  .contato-cards-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    margin-top: 50rem !important;
+    padding-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
+    transform: translateY(50rem) !important;
+  }
+  
+  .horario-card, .historia-card {
+    transform: scale(0.95) !important;
+    transform-origin: center !important;
+    margin-top: 50rem !important;
+    position: relative !important;
+    top: 50rem !important;
   }
 }
 
