@@ -45,7 +45,7 @@ export default function Header({ onMenuToggle, isVisible }) {
             <a href="#servicos">Serviços</a>
           </li>
           <li className="nav-profissionais">
-            <a href="#profissionais">Profissionais</a>
+            <a href="#barbeiros">Profissionais</a>
           </li>
           <li className="nav-produtos">
             <a href="#produtos">Produtos</a>
