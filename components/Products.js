@@ -67,7 +67,7 @@ export default function Products() {
   useEffect(() => {
     setIsClient(true);
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 701);
-    const checkMobile = () => setIsMobile(window.innerWidth <= 480);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 480 && window.innerWidth !== 690);
     if (typeof window !== 'undefined') {
       checkDesktop();
       checkMobile();
@@ -87,6 +87,14 @@ export default function Products() {
       };
     }
   }, []);
+
+
+
+
+
+
+
+
 
   const products = [
     { name: 'Ativador de Cachos | Cavalera', image: '/imgs/ativadordeCachos-cavalera.jpg', category: 'cavalera', description: 'Realce os cachos com definição, maciez e controle de frizz. Ideal para quem quer estilo com movimento natural.' },
@@ -134,11 +142,30 @@ export default function Products() {
     filteredProducts = filteredProducts.filter(product => product.name !== 'Pente para Barba');
   }
 
-  // Debug: ver quantos produtos estão sendo passados para o Swiper
-  console.log('filteredProducts:', filteredProducts);
+  // Para Galaxy Fold, garantir que "Ativador de Cachos" seja sempre o primeiro
+  if (isClient && Math.abs(window.innerWidth - 690) <= 1 && Math.abs(window.innerHeight - 829) <= 1 && activeCategory === 'todos') {
+    // Reordenar para garantir que "Ativador de Cachos" seja o primeiro
+    const ativadorCachos = filteredProducts.find(p => p.name.includes('Ativador de Cachos'));
+    if (ativadorCachos) {
+      const outrosProdutos = filteredProducts.filter(p => !p.name.includes('Ativador de Cachos'));
+      filteredProducts = [ativadorCachos, ...outrosProdutos];
+    }
+  }
 
   // Centralizar slide único para Walory
   const isWalorySingle = activeCategory === 'walory' && filteredProducts.length === 1;
+
+  // Detectar Nest Hub Max para centralizar Walory
+  const isNestHubMax = isClient && window.innerWidth === 1280 && window.innerHeight === 800;
+  const isWaloryNestHubMax = isWalorySingle && isNestHubMax;
+
+  // Detectar Nest Hub para centralizar Walory
+  const isNestHub = isClient && window.innerWidth === 1024 && window.innerHeight === 600;
+  const isWaloryNestHub = isWalorySingle && isNestHub;
+
+  // Detectar Desktop para centralizar Walory
+  const isDesktopForWalory = isClient && window.innerWidth >= 1024;
+  const isWaloryDesktop = isWalorySingle && isDesktopForWalory;
 
   // Função para trocar filtro e voltar ao primeiro slide
   const handleCategoryChange = (categoryId) => {
@@ -149,36 +176,37 @@ export default function Products() {
     }
   };
 
-  // Mobile: efeito peek/preview
-  const swiperParams = (isClient && isMobile)
-    ? {
-        slidesPerView: 1,
-        centeredSlides: false,
-        spaceBetween: 20,
-        loop: false,
-        pagination: { clickable: true },
-        navigation: true,
-        effect: 'slide',
-        watchSlidesProgress: true,
-        watchSlidesVisibility: true,
-        observer: true,
-        observeParents: true,
-        nested: false,
-        allowTouchMove: true,
-        preventClicks: false,
-        preventClicksPropagation: false,
-        slideToClickedSlide: true,
-      }
-    : {
-        breakpoints: {
-          1200: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false, effect: 'slide' },
-          900: { slidesPerView: 3, spaceBetween: 18, centeredSlides: false, effect: 'slide' },
-          701: { slidesPerView: 2, spaceBetween: 12, centeredSlides: false, effect: 'slide' },
-          0: { slidesPerView: 1, centeredSlides: true, spaceBetween: 0, effect: 'slide' },
-        },
-        navigation: true,
-        pagination: { clickable: true },
-      };
+  // Função para inicializar o Swiper
+  const handleSwiperInit = (swiper) => {
+    swiperRef.current = swiper;
+  };
+
+  // Configuração para outras dimensões (não Galaxy Fold)
+  const swiperParams = {
+    breakpoints: {
+      1280: isWaloryNestHubMax 
+        ? { slidesPerView: 1, spaceBetween: 0, centeredSlides: true, effect: 'slide' } // Walory centralizado no Nest Hub Max
+        : { slidesPerView: 'auto', spaceBetween: 20, centeredSlides: false, effect: 'slide' }, // Nest Hub Max
+      1200: { slidesPerView: 4, spaceBetween: 12, centeredSlides: false, effect: 'slide' },
+      900: { slidesPerView: 3, spaceBetween: 18, centeredSlides: false, effect: 'slide' },
+      853: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, effect: 'slide' }, // Asus Zenbook Fold vertical (853x1280)
+      701: { slidesPerView: 2, spaceBetween: 12, centeredSlides: false, effect: 'slide' },
+      690: { slidesPerView: 1, spaceBetween: 12, centeredSlides: false, effect: 'slide' }, // Galaxy Fold vertical - 1 card por vez
+      829: { slidesPerView: 3, spaceBetween: 16, centeredSlides: false, effect: 'slide' }, // Galaxy Fold horizontal
+      1024: isWaloryNestHub 
+        ? { slidesPerView: 1, spaceBetween: 0, centeredSlides: true, effect: 'slide' } // Walory centralizado no Nest Hub
+        : isWaloryDesktop 
+          ? { slidesPerView: 1, spaceBetween: 0, centeredSlides: true, effect: 'slide', navigation: true } // Walory centralizado no Desktop
+          : { slidesPerView: 'auto', spaceBetween: 20, centeredSlides: false, effect: 'slide' }, // Nest Hub e Desktop
+      0: { slidesPerView: 1, centeredSlides: true, spaceBetween: 0, effect: 'slide' },
+    },
+    navigation: true,
+    pagination: { clickable: true },
+    watchSlidesProgress: true,
+    observer: true,
+    observeParents: true,
+    updateOnWindowResize: true,
+  };
 
   return (
     <section id="produtos" className="produtos">
@@ -196,42 +224,20 @@ export default function Products() {
         ))}
       </div>
 
+      {/* CARROSSEL UNIFICADO PARA TODAS AS DIMENSÕES */}
       <div className={`produtos-carousel-outer ${isMobile ? 'mobile' : ''}`}>
         <div className={`produtos-carousel-container ${isMobile ? 'mobile' : ''}`}>
           <Swiper
-            className={`produtos-swiper ${isWalorySingle && isDesktop ? 'centralizar-walory' : ''} ${isMobile ? 'mobile' : ''}`}
+            className={`produtos-swiper ${isWalorySingle && isDesktop ? 'centralizar-walory' : ''} ${isMobile ? 'mobile' : ''} ${isWaloryNestHubMax ? 'walory-nest-hub-max' : ''} ${isWaloryNestHub ? 'walory-nest-hub' : ''} ${isWaloryDesktop ? 'walory-desktop' : ''}`}
             modules={[Navigation, Pagination, EffectCoverflow]}
-            onSwiper={(swiper) => { swiperRef.current = swiper; }}
+            onSwiper={handleSwiperInit}
             {...swiperParams}
-            style={{ 
-              paddingBottom: '3.5rem',
-              overflow: isMobile ? 'visible' : 'hidden',
-              position: 'relative',
-              width: '100%',
-            }}
           >
             {filteredProducts.map((product) => (
               <SwiperSlide
                 key={product.name + product.image}
-                style={{
-                  position: 'relative',
-                  zIndex: 1,
-                  width: isMobile ? '100%' : 'auto',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
               >
-                <div
-                  className="produto-card"
-                  style={{
-                    position: 'relative',
-                    zIndex: 1,
-                    width: isMobile ? '85vw' : 'auto',
-                    maxWidth: '320px',
-                    margin: '0 auto',
-                  }}
-                >
+                <div className="produto-card">
                   <div className="produto-img-container">
                     <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="produto-img" />
                   </div>

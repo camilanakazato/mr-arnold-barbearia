@@ -16,6 +16,9 @@ import Footer from '../components/Footer'
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(false)
+  const [filtroAtivo, setFiltroAtivo] = useState('todos');
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +72,7 @@ export default function Home() {
           
           <Services />
           <Barbers />
-          <Products />
+          <Products filtroAtivo={filtroAtivo} onFiltroChange={setFiltroAtivo} />
           <Results />
           <Tips />
           <Contact />

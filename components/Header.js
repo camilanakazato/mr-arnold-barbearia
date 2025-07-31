@@ -3,10 +3,17 @@ import { useEffect, useState } from 'react'
 
 export default function Header({ onMenuToggle, isVisible }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isGalaxyFold, setIsGalaxyFold] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 700);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setIsMobile(width <= 700);
+      
+      // Detectar Galaxy Fold Folded (690x829)
+      const isGalaxyFoldFolded = Math.abs(width - 690) <= 1 && Math.abs(height - 829) <= 1;
+      setIsGalaxyFold(isGalaxyFoldFolded);
     };
     
     checkMobile();
@@ -28,27 +35,28 @@ export default function Header({ onMenuToggle, isVisible }) {
             height={60}
             className="logo-barbearia-nav"
           />
-          {!isMobile && <a href="#inicio" className="logo-title">Mr Arnold</a>}
         </div>
         
         <ul className="nav-links">
-          <li>
+          <li className="nav-inicio">
             <a href="#inicio">Início</a>
           </li>
-          <li>
+          <li className="nav-servicos">
             <a href="#servicos">Serviços</a>
           </li>
-          {!isMobile && (
-            <>
-              <li>
-                <a href="#barbeiros">Profissionais</a>
-              </li>
-              <li>
-                <a href="#produtos">Produtos</a>
-              </li>
-            </>
-          )}
-          <li>
+          <li className="nav-profissionais">
+            <a href="#profissionais">Profissionais</a>
+          </li>
+          <li className="nav-produtos">
+            <a href="#produtos">Produtos</a>
+          </li>
+          <li className="nav-resultados">
+            <a href="#resultados">Resultados</a>
+          </li>
+          <li className="nav-dicas">
+            <a href="#dicas">Dicas</a>
+          </li>
+          <li className="nav-contato">
             <a href="#contato">Contato</a>
           </li>
         </ul>
