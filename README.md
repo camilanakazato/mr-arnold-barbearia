@@ -83,9 +83,9 @@ mr-arnold/
 ## 🎨 Personalização
 
 ### Cores principais:
-- **Primária:** #1a1a1a (Preto)
+- **Primária:** #0F1F0F (Verde)
 - **Secundária:** #f5f5f5 (Branco)
-- **Destaque:** #d4af37 (Dourado)
+- **Destaque:** #E55807 (Laranja)
 
 ### Fontes:
 - **Títulos:** Inter, sans-serif
@@ -112,6 +112,10 @@ mr-arnold/
 - **CDN:** Global
 - **Domínio:** Personalizado
 
+### Hospedado em:
+- https://mrarnoldbarbearia.com/
+- Hospedagem VPS na Hostinger
+
 ## 📞 Suporte Técnico
 
 - **Desenvolvedora:** Camila Nakazato
@@ -132,4 +136,4 @@ Este projeto é privado e pertence à Barbearia Mr Arnold.
 
 **Desenvolvido com ❤️ por Camila Nakazato para a Barbearia Mr Arnold**
 
-*Última atualização: Dezembro 2024* 
+*Última atualização: Agosto 2025* 
